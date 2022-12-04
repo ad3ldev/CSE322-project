@@ -1,4 +1,4 @@
-package com.example.AnotherDemo.Models;
+package com.example.demo.Models;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

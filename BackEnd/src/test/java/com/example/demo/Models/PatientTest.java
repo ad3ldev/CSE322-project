@@ -1,4 +1,4 @@
-package com.example.AnotherDemo.Models;
+package com.example.demo.Models;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -11,7 +11,7 @@ class PatientTest {
         actualPatient.setAddress("street 45");
         actualPatient.setAge(26);
         actualPatient.setEmail("ahmad@gmail.com");
-        actualPatient.setGender('M');
+        actualPatient.setGender("M");
         actualPatient.setId(5L);
         actualPatient.setName("ahmad");
         actualPatient.setPassword("ahmadPro");

@@ -1,5 +1,8 @@
-package com.example.AnotherDemo.Utils;
+package com.example.demo.Utils;
 
+import com.example.demo.Models.Type;
+import com.example.demo.Utils.Result;
+import com.example.demo.Utils.State;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,20 +11,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class ResultTest {
     @Test
     void testResultConstructor() {
-        Result actualResult = new Result(true, 123L, 1);
+        Result actualResult = new Result(State.SUCCESS, 123L, Type.Doctor);
         actualResult.setId(123L);
-        actualResult.setState(true);
         assertEquals(123L, actualResult.getId().longValue());
-        assertTrue(actualResult.isState());
+        assertEquals(actualResult.getState(), State.SUCCESS);
     }
 
     @Test
     void testStateTrue() {
-        assertTrue((new Result(true, 50L, 10)).isState());
+        assertEquals((new Result(State.SUCCESS, 50L, Type.Doctor)).getState(), State.SUCCESS);
     }
 
     @Test
     void testStateFalse() {
-        assertFalse((new Result(false, 50L, 10)).isState());
+        assertEquals((new Result(State.FAILURE, 50L, Type.Doctor)).getState(), State.FAILURE);
     }
 }

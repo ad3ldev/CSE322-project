@@ -1,10 +1,10 @@
-package com.example.AnotherDemo.Service;
+package com.example.demo.Service;
 
-import com.example.AnotherDemo.Exception.BadRequestException;
-import com.example.AnotherDemo.Exception.UserNotFoundException;
-import com.example.AnotherDemo.Models.Doctor;
-import com.example.AnotherDemo.Models.DoctorSpeciality;
-import com.example.AnotherDemo.Repo.DoctorRepository;
+import com.example.demo.Exception.BadRequestException;
+import com.example.demo.Exception.UserNotFoundException;
+import com.example.demo.Models.Doctor;
+import com.example.demo.Models.DoctorSpeciality;
+import com.example.demo.Repo.DoctorRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
