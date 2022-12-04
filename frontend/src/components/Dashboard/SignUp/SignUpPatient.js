@@ -160,7 +160,7 @@ const SignUpPatient = () => {
               createPatient(e);
             }}
           >
-            Login
+            Sign Up
           </button>
         </div>
       </form>
