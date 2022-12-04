@@ -1,6 +1,6 @@
-package com.example.AnotherDemo.Repo;
+package com.example.demo.Repo;
 
-import com.example.AnotherDemo.Models.Doctor;
+import com.example.demo.Models.Doctor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package com.example.AnotherDemo.Models;
+package com.example.demo.Models;
 
 public enum Type {
     Doctor,

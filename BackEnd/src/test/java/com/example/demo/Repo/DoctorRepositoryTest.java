@@ -1,7 +1,7 @@
-package com.example.AnotherDemo.Repo;
+package com.example.demo.Repo;
 
-import com.example.AnotherDemo.Models.Doctor;
-import com.example.AnotherDemo.Models.DoctorSpeciality;
+import com.example.demo.Models.Doctor;
+import com.example.demo.Models.DoctorSpeciality;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
