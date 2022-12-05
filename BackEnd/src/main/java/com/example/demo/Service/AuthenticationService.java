@@ -1,5 +1,7 @@
 package com.example.demo.Service;
 
+import com.example.demo.Models.Doctor;
+import com.example.demo.Models.Patient;
 import com.example.demo.Models.Type;
 import com.example.demo.Repo.DoctorRepository;
 import com.example.demo.Repo.PatientRepository;
@@ -27,15 +29,17 @@ public class AuthenticationService {
         if(type.equals(Type.Doctor.name())){
             //Check if doctor exists
             List<Long> ids = dr.findDoctorByEmailAndPassword(email, password);
+            Doctor doctor = dr.getById(ids.get(0));
             if(!ids.isEmpty())
-                return new Result(State.SUCCESS, ids.get(0), Type.Doctor);
+                return new Result(State.SUCCESS, ids.get(0), Type.Doctor, null, doctor);
 
         }else if(type.equals(Type.Patient.name())){
             //Check if patient exists
             List<Long> ids = pr.findPatientByEmailAndPassword(email, password);
+            Patient patient = pr.getById(ids.get(0));
             if(!ids.isEmpty())
-                return new Result(State.SUCCESS, ids.get(0), Type.Patient);
+                return new Result(State.SUCCESS, ids.get(0), Type.Patient, patient, null);
         }
-        return new Result(State.FAILURE, null, null);
+        return new Result(State.FAILURE, null, null, null, null);
     }
 }

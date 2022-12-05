@@ -30,29 +30,29 @@ public class ProfileCreationService {
 
         if (type.equals(Type.Doctor.name())) {
             if (dr.isEmailExist(email)) {
-                result = new Result(State.FAILURE, null, null);
+                result = new Result(State.FAILURE, null, null, null, null);
             } else {
                 ObjectMapper mapper = new ObjectMapper();
                 Doctor doctor = mapper.readValue(userJsonString, Doctor.class);
                 dr.save(doctor);
                 id = doctor.getId();
                 System.out.println("doctor created");
-                result = new Result(State.SUCCESS, id, Type.Doctor);
+                result = new Result(State.SUCCESS, id, Type.Doctor, null, doctor);
             }
         } else if (type.equals(Type.Patient.name())) {
             if (pr.isEmailExist(email)) {
-                result = new Result(State.FAILURE, null, null);
+                result = new Result(State.FAILURE, null, null, null, null);
             } else {
                 ObjectMapper mapper = new ObjectMapper();
                 Patient patient = mapper.readValue(userJsonString, Patient.class);
                 pr.save(patient);
                 id = patient.getId();
                 System.out.println("patient created");
-                result = new Result(State.SUCCESS, id, Type.Patient);
+                result = new Result(State.SUCCESS, id, Type.Patient, patient, null);
             }
         }
         if (result == null) {
-            result = new Result(State.FAILURE, null, null);
+            result = new Result(State.FAILURE, null, null, null, null);
             return result;
         } else
             return result;

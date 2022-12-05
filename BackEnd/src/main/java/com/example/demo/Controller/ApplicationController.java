@@ -30,7 +30,6 @@ public class ApplicationController {
 
     @PostMapping("/signUp")
     public Result signUp(@RequestBody String userJsonString) throws JsonProcessingException, JSONException {
-        System.out.println("signUp");
         return profileCreationService.createProfile(userJsonString);
     }
 
@@ -45,7 +44,6 @@ public class ApplicationController {
 
     @PostMapping("/login")
     public Result login(@RequestBody String infoString) throws JSONException {
-    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         return authService.Login(infoString);
     }
 
