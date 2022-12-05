@@ -2,7 +2,7 @@ import DoctorDashboard from "./DoctorDashboard";
 import PatientDashboard from "./PatientDashboard";
 import "./Dashboard.css";
 const Dashboard = () => {
-	let isDoctor = false;
+	let isDoctor = true;
 	const patient = {
 		type: "Patient",
 		id: "1",
@@ -25,9 +25,15 @@ const Dashboard = () => {
 		yearsOfExperience: 5,
 	};
 	return (
-		<div className='container'>
-			{isDoctor && <DoctorDashboard doctor={doctor} />}
-			{!isDoctor && <PatientDashboard patient={patient} />}
+		<div className='dashboard'>
+			<div className='top-bar'>
+				<p>Search</p>
+				<input type='text' />
+			</div>
+			<div className='info'>
+				{isDoctor && <DoctorDashboard doctor={doctor} />}
+				{!isDoctor && <PatientDashboard patient={patient} />}
+			</div>
 		</div>
 	);
 };

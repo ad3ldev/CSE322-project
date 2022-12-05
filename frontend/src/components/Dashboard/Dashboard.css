@@ -18,8 +18,19 @@ body {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.container {
+.dashboard {
 	display: grid;
+	grid-template-rows: 1fr 99fr;
 	height: 100vh;
-	background: rgba(255, 255, 255, 0.75);
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.top-bar {
+	display: flex;
+	gap: 1rem;
+	justify-content: end;
+	padding: 1rem;
+}
+.info {
+	padding: 1rem;
 }

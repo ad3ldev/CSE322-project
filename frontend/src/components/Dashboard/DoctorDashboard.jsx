@@ -1,8 +1,12 @@
 const DoctorDashboard = ({ doctor }) => {
 	return (
-		<>
-			<h1>Hello Dr. {doctor.name}</h1>
-		</>
+		<div className='dash'>
+			<div className='dash-name'>
+				<h1>Hello Dr. {doctor.name}</h1>
+			</div>
+			<div className='next-patient'></div>
+			<div className='upcoming'></div>
+		</div>
 	);
 };
 
