@@ -48,7 +48,6 @@ const SignUpDoctor = () => {
 	};
 	const emailAlert = document.querySelector(".email__alert");
 	const passwordAlert = document.querySelector(".password__alert");
-
 	const validateEmail = (address) => {
 		console.log(address);
 		const check =
@@ -60,16 +59,13 @@ const SignUpDoctor = () => {
 			setTimeout(removeAlert, 3000);
 		}
 	};
-
 	// email alerts
 	function showAlert() {
 		emailAlert.style.display = "block";
 	}
-
 	function removeAlert() {
 		emailAlert.style.display = "none";
 	}
-
 	return (
 		<div className='Dcontainer'>
 			<form className='contact__form'>
@@ -162,10 +158,29 @@ const SignUpDoctor = () => {
 						</option>
 						<option value='Family'>Family</option>
 						<option value='Internal'>Internal</option>
-						<option value='hamster'>Hamster</option>
-						<option value='parrot'>Parrot</option>
-						<option value='spider'>Spider</option>
-						<option value='goldfish'>Goldfish</option>
+						<option value='Paediatrician'>Paediatrician</option>
+						<option value='Cardiologist'>Cardiologist</option>
+						<option value='Oncologist'>Oncologist</option>
+						<option value='Gastroenterologist'>
+							Gastroenterologist
+						</option>
+						<option value='Pulmonologist'>Pulmonologist</option>
+						<option value='InfectiousDisease'>
+							InfectiousDisease
+						</option>
+						<option value='Endocrinologist'>Endocrinologist</option>
+						<option value='Ophthalmologist'>Ophthalmologist</option>
+						<option value='Dermatologist'>Dermatologist</option>
+						<option value='Psychiatrist'>Psychiatrist</option>
+						<option value='Neurologist'>Neurologist</option>
+						<option value='Radiologist'>Radiologist</option>
+						<option value='Anesthesiologist'>
+							Anesthesiologist
+						</option>
+						<option value='Surgeon'>Surgeon</option>
+						<option value='PhysicianExecutive'>
+							PhysicianExecutive
+						</option>
 					</select>
 				</div>
 				<div className='Years'>
