@@ -1,7 +1,11 @@
 import "./SignUpDoctor.css";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const SignUpDoctor = () => {
+	const navigate = useNavigate();
+
 	const [doctor, setDoctor] = useState({
 		type: "Doctor",
 		id: "",
@@ -28,6 +32,7 @@ const SignUpDoctor = () => {
 			user[e.target.id] = e.target.value;
 		}
 		setDoctor(user);
+		console.log(user);
 	};
 	const createDoctor = (e) => {
 		console.log(doctor);
@@ -43,11 +48,20 @@ const SignUpDoctor = () => {
 			validateEmail(doctor.email);
 		} else {
 			validateEmail(doctor.email);
-			axios.post(`/signUp`, doctor);
+			axios.post("/signUp", doctor).then((response) => {
+				const res = response.data;
+				console.log(response.data.id);
+				if (res.id >= 0 && res.state === "SUCCESS") {
+					navigate("/dashboard");
+				} else {
+					showAlert();
+				}
+			});
 		}
 	};
 	const emailAlert = document.querySelector(".email__alert");
 	const passwordAlert = document.querySelector(".password__alert");
+
 	const validateEmail = (address) => {
 		console.log(address);
 		const check =
@@ -59,13 +73,16 @@ const SignUpDoctor = () => {
 			setTimeout(removeAlert, 3000);
 		}
 	};
+
 	// email alerts
 	function showAlert() {
 		emailAlert.style.display = "block";
 	}
+
 	function removeAlert() {
 		emailAlert.style.display = "none";
 	}
+
 	return (
 		<div className='Dcontainer'>
 			<form className='contact__form'>
@@ -81,7 +98,7 @@ const SignUpDoctor = () => {
 						}}
 					/>
 					<span className='field__name'>Name</span>
-					<small className='email__alert'>
+					<small className='name__alert'>
 						Please enter a valid name
 					</small>
 				</div>
@@ -100,6 +117,7 @@ const SignUpDoctor = () => {
 						Please enter a valid email address
 					</small>
 				</div>
+
 				<div className='Demail'>
 					<i className='far fa-envelope icon'></i>
 					<input
@@ -115,6 +133,7 @@ const SignUpDoctor = () => {
 						Please enter a valid address
 					</small>
 				</div>
+
 				<div className='Demail'>
 					<i className='fas fa-lock icon'></i>
 					<input
@@ -131,6 +150,7 @@ const SignUpDoctor = () => {
 						uppercase letter
 					</small>
 				</div>
+
 				<div className='Dage'>
 					<i className='far fa-envelope icon'></i>
 					<input
@@ -146,6 +166,7 @@ const SignUpDoctor = () => {
 						Age can't be empty or negative
 					</small>
 				</div>
+
 				<div className='Specialization'>
 					<select
 						name='Specializtion'
@@ -183,6 +204,7 @@ const SignUpDoctor = () => {
 						</option>
 					</select>
 				</div>
+
 				<div className='Years'>
 					<i className='far fa-envelope icon'></i>
 					<input
@@ -228,6 +250,7 @@ const SignUpDoctor = () => {
 						Age can't be empty or negative
 					</small>
 				</div>
+
 				<div className='Dbottom'>
 					<button
 						type='submit'

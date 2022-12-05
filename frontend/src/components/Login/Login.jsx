@@ -20,7 +20,9 @@ const Login = () => {
 		} else {
 			user[e.target.id] = e.target.value;
 		}
+
 		setLoggedPerson(user);
+		console.log(user);
 	};
 
 	// EMAIL VALIDATION
@@ -32,7 +34,7 @@ const Login = () => {
 	const passwordAlert = document.querySelector(".password__alert");
 
 	function submit(e) {
-		console.log(loggedPerson);
+		e.preventDefault();
 		if (loggedPerson.email === null || loggedPerson.password === null) {
 			showAlert();
 			setTimeout(removeAlert, 3000);
@@ -40,17 +42,13 @@ const Login = () => {
 		} else {
 			validateEmail(loggedPerson.email);
 			axios.post("/login", loggedPerson).then((response) => {
-				if (response.status == 200) {
-					axios.get("/getInfo").then((response) => {
-						console.log(eval(response.data));
-					});
+				const res = response.data;
+				if (res.id >= 0 && res.state === "SUCCESS") {
+					navigate("/dashboard");
+				} else {
+					showAlert();
 				}
 			});
-		}
-		e.preventDefault();
-		if (confirmed === 1) {
-			e.preventDefault();
-			navigate("/dashboard");
 		}
 	}
 
@@ -88,6 +86,7 @@ const Login = () => {
 		<div className='container'>
 			<form className='contact__form'>
 				<h2>Choose Account Type</h2>
+
 				<div className='options'>
 					<input
 						type='radio'
@@ -126,7 +125,9 @@ const Login = () => {
 						</span>
 					</label>
 				</div>
+
 				<span className='message__selection'></span>
+
 				<div className='email'>
 					<i className='far fa-envelope icon'></i>
 					<input
@@ -142,6 +143,7 @@ const Login = () => {
 						Please enter a valid email address
 					</small>
 				</div>
+
 				<div className='password'>
 					<i className='fas fa-lock icon'></i>
 					<input
@@ -161,6 +163,7 @@ const Login = () => {
 						uppercase letter
 					</small>
 				</div>
+
 				<div className='bottom'>
 					<div className='no__acc'>
 						<span>No account?</span>
