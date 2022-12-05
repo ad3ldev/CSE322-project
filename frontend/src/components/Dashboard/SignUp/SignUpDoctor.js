@@ -152,12 +152,23 @@ const SignUpDoctor = () => {
             }}
           >
             <option value="">Please choose your specialization</option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
+            <option value="Family">Family</option>
+            <option value="Internal">Internal</option>
+            <option value="Paediatrician">Paediatrician</option>
+            <option value="Cardiologist">Cardiologist</option>
+            <option value="Oncologist">Oncologist</option>
+            <option value="Gastroenterologist">Gastroenterologist</option>
+            <option value="Pulmonologist">Pulmonologist</option>
+            <option value="InfectiousDisease">InfectiousDisease</option>
+            <option value="Endocrinologist">Endocrinologist</option>
+            <option value="Ophthalmologist">Ophthalmologist</option>
+            <option value="Dermatologist">Dermatologist</option>
+            <option value="Psychiatrist">Psychiatrist</option>
+            <option value="Neurologist">Neurologist</option>
+            <option value="Radiologist">Radiologist</option>
+            <option value="Anesthesiologist">Anesthesiologist</option>
+            <option value="Surgeon">Surgeon</option>
+            <option value="PhysicianExecutive">PhysicianExecutive</option>
           </select>
         </div>
 
