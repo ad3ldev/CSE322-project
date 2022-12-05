@@ -32,12 +32,9 @@ const SignUpDoctor = () => {
 			user[e.target.id] = e.target.value;
 		}
 		setDoctor(user);
-		console.log(user);
 	};
 	const createDoctor = (e) => {
-		console.log(doctor);
 		e.preventDefault();
-
 		if (
 			doctor.email === "" ||
 			doctor.password === "" ||
@@ -50,9 +47,8 @@ const SignUpDoctor = () => {
 			validateEmail(doctor.email);
 			axios.post("/signUp", doctor).then((response) => {
 				const res = response.data;
-				console.log(response.data.id);
 				if (res.id >= 0 && res.state === "SUCCESS") {
-					navigate("/dashboard");
+					navigate("/dashboard", { state: res });
 				} else {
 					showAlert();
 				}
@@ -63,11 +59,10 @@ const SignUpDoctor = () => {
 	const passwordAlert = document.querySelector(".password__alert");
 
 	const validateEmail = (address) => {
-		console.log(address);
 		const check =
 			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		if (check.test(address) & (address !== null) & (address !== "")) {
-			console.log(check.test(address));
+			check.test(address);
 		} else {
 			showAlert();
 			setTimeout(removeAlert, 3000);

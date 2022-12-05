@@ -22,7 +22,6 @@ const Login = () => {
 		}
 
 		setLoggedPerson(user);
-		console.log(user);
 	};
 
 	// EMAIL VALIDATION
@@ -35,7 +34,11 @@ const Login = () => {
 
 	function submit(e) {
 		e.preventDefault();
-		if (loggedPerson.email === null || loggedPerson.password === null) {
+		if (
+			loggedPerson.type === "" ||
+			loggedPerson.email === "" ||
+			loggedPerson.password === ""
+		) {
 			showAlert();
 			setTimeout(removeAlert, 3000);
 			validateEmail(loggedPerson.email);
@@ -44,7 +47,7 @@ const Login = () => {
 			axios.post("/login", loggedPerson).then((response) => {
 				const res = response.data;
 				if (res.id >= 0 && res.state === "SUCCESS") {
-					navigate("/dashboard");
+					navigate("/dashboard", { state: res });
 				} else {
 					showAlert();
 				}
@@ -53,11 +56,10 @@ const Login = () => {
 	}
 
 	const validateEmail = (address) => {
-		console.log(address);
 		const check =
 			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		if (check.test(address) & (address !== null) & (address !== "")) {
-			console.log(check.test(address));
+			check.test(address);
 			setConfirm(1);
 		} else {
 			showAlert();
