@@ -1,0 +1,229 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --light-blue: #00b4d8;
+  --blue: #0077b6;
+  --dark-blue: #03045e;
+}
+
+body {
+  background: url(background.jpg);
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Dcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+form {
+  width: 470px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+form h2 {
+  color: var(--light-blue);
+  font-weight: 300;
+}
+
+/* OPTIONS SECTION */
+
+/* EMAIL AND PASSWORD */
+.Dname,
+.Demail,
+.Dpassword {
+  margin: 1rem;
+  width: 90%;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  position: relative;
+}
+.Dage {
+  right: 30%;
+  margin: 1rem;
+  width: 30%;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  position: relative;
+  display: inline;
+}
+.Years,
+.Cprise,
+.Fprise {
+  right: 10%;
+  margin: 1rem;
+  bottom: 40px;
+  width: 70%;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  position: relative;
+  display: inline;
+}
+.Dname input,
+.Demail input,
+.Dpassword input {
+  width: 65%;
+  border: none;
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+  padding: 10px;
+  outline: none;
+  font-size: 16px;
+}
+.Dage input {
+  width: 40%;
+  border: none;
+  position: relative;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+  padding: 10px;
+  outline: none;
+  font-size: 16px;
+  display: inline-block;
+}
+.Years input,
+.Cprise input,
+.Fprise input {
+  width: 80%;
+  border: none;
+  position: relative;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+  padding: 10px;
+  outline: none;
+  font-size: 16px;
+  display: inline-block;
+}
+
+.Dpassword input {
+  border-right: solid 1px #ddd;
+}
+
+.Demail:focus-within,
+.Dname:focus-within,
+.password:focus-within,
+.Dage:focus-within,
+.Years:focus-within,
+.Cprise:focus-within,
+.Fprise:focus-within {
+  border: 1px solid var(--blue);
+}
+
+.Demail:focus-within .field__name,
+.Dname:focus-within .field__name,
+.Dpassword:focus-within .field__name,
+.Dage:focus-within .field__name,
+.Years:focus-within .field__name,
+.Cprise:focus-within .field__name,
+.Fprise:focus-within .field__name {
+  display: block;
+}
+
+.Demail .icon,
+.Dname .icon,
+.Dpassword .icon,
+.Dage .icon,
+.Years .icon,
+.Cprise .icon,
+.Fprise .icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #ddd;
+  font-size: 18px;
+}
+
+.Demail .field__name,
+.Dname .field__name,
+.Dpassword .field__name,
+.Dage .field__name,
+.Years .field__name,
+.Cprise .field__name,
+.Fprise .field__name {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 10px;
+  background-color: var(--blue);
+  color: white;
+  padding: 3px 6px;
+  border-radius: 3px;
+  display: none;
+}
+
+.email__alert,
+.password__alert {
+  position: absolute;
+  bottom: -20px;
+  color: salmon;
+  font-size: 12px;
+  display: none;
+}
+.Gender select {
+  position: relative;
+  left: 50%;
+  width: 115px;
+  height: 40px;
+  bottom: 56px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: #7f8287;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* BOTTOM FORM */
+
+.Pbottom {
+  position: relative;
+  bottom: 20px;
+  width: 90%;
+}
+
+a:-webkit-any-link {
+  color: var(--light-blue);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.Pbottom button {
+  border: none;
+  padding: 10px 25px;
+  background-color: var(--light-blue);
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+}
+
+.Pbottom button:active {
+  transform: scale(0.98);
+}
