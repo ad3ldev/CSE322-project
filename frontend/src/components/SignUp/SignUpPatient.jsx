@@ -1,7 +1,9 @@
 import "./SignUpPatient.css";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const SignUpPatient = () => {
+	const navigate = useNavigate();
 	const [patient, setPatient] = useState({
 		type: "Patient",
 		id: "",
@@ -13,7 +15,6 @@ const SignUpPatient = () => {
 		password: "",
 		previousReports: "",
 	});
-
 	const handleInfo = (e) => {
 		const user = { ...patient };
 		if (e.target.id === "age") {
@@ -27,6 +28,7 @@ const SignUpPatient = () => {
 	const createPatient = (e) => {
 		console.log(patient);
 		e.preventDefault();
+
 		if (
 			patient.email === "" ||
 			patient.password === "" ||
@@ -37,7 +39,15 @@ const SignUpPatient = () => {
 			validateEmail(patient.email);
 		} else {
 			validateEmail(patient.email);
-			axios.post(`/signUp`, patient);
+			axios.post(`/signUp`, patient).then((response) => {
+				const res = response.data;
+				console.log(response.data.id);
+				if (res.id >= 0 && res.state === "SUCCESS") {
+					navigate("/dashboard");
+				} else {
+					showAlert();
+				}
+			});
 		}
 	};
 	const emailAlert = document.querySelector(".email__alert");
@@ -96,6 +106,7 @@ const SignUpPatient = () => {
 						Please enter a valid email address
 					</small>
 				</div>
+
 				<div className='Demail'>
 					<i className='fas fa-lock icon'></i>
 					<input
@@ -142,6 +153,7 @@ const SignUpPatient = () => {
 						Age can't be empty or negative
 					</small>
 				</div>
+
 				<div className='Gender'>
 					<select
 						name='gender'
@@ -154,6 +166,7 @@ const SignUpPatient = () => {
 						<option value='F'>Female</option>
 					</select>
 				</div>
+
 				<div className='Pbottom'>
 					<button
 						type='submit'
