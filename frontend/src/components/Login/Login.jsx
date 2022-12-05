@@ -48,10 +48,10 @@ const Login = () => {
 			});
 		}
 		e.preventDefault();
-		// if (confirmed === 1) {
-		// 	e.preventDefault();
-		// 	navigate("/dashboard");
-		// }
+		if (confirmed === 1) {
+			e.preventDefault();
+			navigate("/dashboard");
+		}
 	}
 
 	const validateEmail = (address) => {
