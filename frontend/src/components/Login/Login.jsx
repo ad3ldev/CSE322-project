@@ -39,13 +39,19 @@ const Login = () => {
 			validateEmail(loggedPerson.email);
 		} else {
 			validateEmail(loggedPerson.email);
-			axios.post("/login", loggedPerson);
+			axios.post("/login", loggedPerson).then((response) => {
+				if (response.status == 200) {
+					axios.get("/getInfo").then((response) => {
+						console.log(eval(response.data));
+					});
+				}
+			});
 		}
 		e.preventDefault();
-		if (confirmed === 1) {
-			e.preventDefault();
-			navigate("/dashboard");
-		}
+		// if (confirmed === 1) {
+		// 	e.preventDefault();
+		// 	navigate("/dashboard");
+		// }
 	}
 
 	const validateEmail = (address) => {

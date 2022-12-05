@@ -49,4 +49,9 @@ public class ApplicationController {
         return authService.Login(infoString);
     }
 
+    @GetMapping("/getInfo")
+    public String getInfo(){
+        return "{\"name\":\"Sammy\",\"email\":\"sammy@example.com\",\"plan\":\"Pro\"}";
+    }
+
 }
