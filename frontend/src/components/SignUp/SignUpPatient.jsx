@@ -26,7 +26,6 @@ const SignUpPatient = () => {
 		setPatient(user);
 	};
 	const createPatient = (e) => {
-		console.log(patient);
 		e.preventDefault();
 
 		if (
@@ -41,9 +40,8 @@ const SignUpPatient = () => {
 			validateEmail(patient.email);
 			axios.post(`/signUp`, patient).then((response) => {
 				const res = response.data;
-				console.log(response.data.id);
 				if (res.id >= 0 && res.state === "SUCCESS") {
-					navigate("/dashboard");
+					navigate("/dashboard", { state: res });
 				} else {
 					showAlert();
 				}
@@ -57,7 +55,7 @@ const SignUpPatient = () => {
 		const check =
 			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		if (check.test(address) & (address !== null) & (address !== "")) {
-			console.log(check.test(address));
+			check.test(address);
 		} else {
 			showAlert();
 			setTimeout(removeAlert, 3000);

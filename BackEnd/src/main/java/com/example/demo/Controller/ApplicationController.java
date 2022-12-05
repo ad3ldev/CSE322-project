@@ -38,6 +38,7 @@ public class ApplicationController {
     public List<Doctor> displayDoctors(){
         return dr.findAll();
     }
+
     @GetMapping("/getPatients")
     public List<Patient> displayPatients(){
         return pr.findAll();
@@ -45,13 +46,8 @@ public class ApplicationController {
 
     @PostMapping("/login")
     public Result login(@RequestBody String infoString) throws JSONException {
-    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         return authService.Login(infoString);
     }
 
-    @GetMapping("/getInfo")
-    public String getInfo(){
-        return "{\"name\":\"Sammy\",\"email\":\"sammy@example.com\",\"plan\":\"Pro\"}";
-    }
 
 }
