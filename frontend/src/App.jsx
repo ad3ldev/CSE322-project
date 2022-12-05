@@ -3,7 +3,7 @@ import axios from "axios";
 import Login from "./components/Login/Login";
 import SignUpDoctor from "./components/SignUp/SignUpDoctor";
 import SignUpPatient from "./components/SignUp/SignUpPatient";
-import DoctorDashboard from "./components/Dashboard/DoctorDashboard";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
 	axios.defaults.baseURL = "http://localhost:8080/";
@@ -12,7 +12,7 @@ function App() {
 			<Route exact path='/' element={<Login />} />
 			<Route path='/SignUpDoctor' element={<SignUpDoctor />} />
 			<Route path='/SignUpPatient' element={<SignUpPatient />} />
-			<Route exact path='/dashboard' element={<DoctorDashboard />} />
+			<Route exact path='/dashboard' element={<Dashboard />} />
 		</Routes>
 	);
 }

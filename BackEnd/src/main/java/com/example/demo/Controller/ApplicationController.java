@@ -43,7 +43,7 @@ public class ApplicationController {
         return pr.findAll();
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public Result login(@RequestBody String infoString) throws JSONException {
     System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         return authService.Login(infoString);

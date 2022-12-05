@@ -20,7 +20,6 @@ const Login = () => {
 		} else {
 			user[e.target.id] = e.target.value;
 		}
-
 		setLoggedPerson(user);
 	};
 
@@ -83,7 +82,6 @@ const Login = () => {
 		<div className='container'>
 			<form className='contact__form'>
 				<h2>Choose Account Type</h2>
-
 				<div className='options'>
 					<input
 						type='radio'
@@ -122,9 +120,7 @@ const Login = () => {
 						</span>
 					</label>
 				</div>
-
 				<span className='message__selection'></span>
-
 				<div className='email'>
 					<i className='far fa-envelope icon'></i>
 					<input
@@ -140,7 +136,6 @@ const Login = () => {
 						Please enter a valid email address
 					</small>
 				</div>
-
 				<div className='password'>
 					<i className='fas fa-lock icon'></i>
 					<input
@@ -160,7 +155,6 @@ const Login = () => {
 						uppercase letter
 					</small>
 				</div>
-
 				<div className='bottom'>
 					<div className='no__acc'>
 						<span>No account?</span>

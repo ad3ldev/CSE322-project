@@ -1,7 +1,7 @@
-const DoctorDashboard = () => {
+const DoctorDashboard = ({ doctor }) => {
 	return (
 		<>
-			<h1>Hello Dr. X</h1>
+			<h1>Hello Dr. {doctor.name}</h1>
 		</>
 	);
 };

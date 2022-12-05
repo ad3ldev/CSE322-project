@@ -104,7 +104,6 @@ const SignUpDoctor = () => {
 						Please enter a valid email address
 					</small>
 				</div>
-
 				<div className='Demail'>
 					<i className='far fa-envelope icon'></i>
 					<input
@@ -120,7 +119,6 @@ const SignUpDoctor = () => {
 						Please enter a valid address
 					</small>
 				</div>
-
 				<div className='Demail'>
 					<i className='fas fa-lock icon'></i>
 					<input
@@ -137,7 +135,6 @@ const SignUpDoctor = () => {
 						uppercase letter
 					</small>
 				</div>
-
 				<div className='Dage'>
 					<i className='far fa-envelope icon'></i>
 					<input
@@ -153,7 +150,6 @@ const SignUpDoctor = () => {
 						Age can't be empty or negative
 					</small>
 				</div>
-
 				<div className='Specialization'>
 					<select
 						name='Specializtion'
@@ -164,15 +160,14 @@ const SignUpDoctor = () => {
 						<option value=''>
 							Please choose your specialization
 						</option>
-						<option value='dog'>Dog</option>
-						<option value='cat'>Cat</option>
+						<option value='Family'>Family</option>
+						<option value='Internal'>Internal</option>
 						<option value='hamster'>Hamster</option>
 						<option value='parrot'>Parrot</option>
 						<option value='spider'>Spider</option>
 						<option value='goldfish'>Goldfish</option>
 					</select>
 				</div>
-
 				<div className='Years'>
 					<i className='far fa-envelope icon'></i>
 					<input
@@ -218,7 +213,6 @@ const SignUpDoctor = () => {
 						Age can't be empty or negative
 					</small>
 				</div>
-
 				<div className='Dbottom'>
 					<button
 						type='submit'
