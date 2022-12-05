@@ -6,6 +6,8 @@ const PatientDashboard = ({ patient }) => {
 				{isFemale && <h1>Hello Mrs. {patient.name}</h1>}
 				{!isFemale && <h1>Hello Mr. {patient.name}</h1>}
 			</div>
+			<div className='reports'></div>
+			<div className='upcoming'></div>
 		</div>
 	);
 };
