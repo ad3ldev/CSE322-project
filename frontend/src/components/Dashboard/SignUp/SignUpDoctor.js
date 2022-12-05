@@ -1,7 +1,11 @@
 import "./SignUpDoctor.css";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const SignUpDoctor = () => {
+  const navigate = useNavigate();
+
   const [doctor, setDoctor] = useState({
     type: "Doctor",
     id: "",
@@ -28,6 +32,7 @@ const SignUpDoctor = () => {
       user[e.target.id] = e.target.value;
     }
     setDoctor(user);
+    console.log(user);
   };
   const createDoctor = (e) => {
     console.log(doctor);
@@ -39,7 +44,15 @@ const SignUpDoctor = () => {
       validateEmail(doctor.email);
     } else {
       validateEmail(doctor.email);
-      axios.post(`/signUp`, doctor);
+      axios.post("/signUp", doctor).then((response) => {
+        const res = response.data;
+        console.log(response.data.id);
+        if (res.id >= 0 && res.state === "SUCCESS") {
+          navigate("/dash");
+        } else {
+          showAlert();
+        }
+      });
     }
   };
   const emailAlert = document.querySelector(".email__alert");
@@ -81,7 +94,7 @@ const SignUpDoctor = () => {
             }}
           />
           <span className="field__name">Name</span>
-          <small className="email__alert">Please enter a valid name</small>
+          <small className="name__alert">Please enter a valid name</small>
         </div>
         <div className="Demail">
           <i className="far fa-envelope icon"></i>

@@ -22,6 +22,7 @@ const Login = () => {
     }
 
     setLoggedPerson(user);
+    console.log(user);
   };
 
   // EMAIL VALIDATION
@@ -33,19 +34,21 @@ const Login = () => {
   const passwordAlert = document.querySelector(".password__alert");
 
   function submit(e) {
-    console.log(loggedPerson);
+    e.preventDefault();
     if (loggedPerson.email === null || loggedPerson.password === null) {
       showAlert();
       setTimeout(removeAlert, 3000);
       validateEmail(loggedPerson.email);
     } else {
       validateEmail(loggedPerson.email);
-      axios.post("/login", loggedPerson);
-    }
-    e.preventDefault();
-    if (confirmed === 1) {
-      e.preventDefault();
-      navigate("/dash");
+      axios.post("/login", loggedPerson).then((response) => {
+        const res = response.data;
+        if (res.id >= 0 && res.state === "SUCCESS") {
+          navigate("/dash");
+        } else {
+          showAlert();
+        }
+      });
     }
   }
 

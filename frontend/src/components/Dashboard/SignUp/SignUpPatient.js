@@ -1,7 +1,9 @@
 import "./SignUpPatient.css";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const SignUpPatient = () => {
+  const navigate = useNavigate();
   const [pateint, setpateint] = useState({
     type: "Patient",
     id: "",
@@ -38,7 +40,15 @@ const SignUpPatient = () => {
       validateEmail(pateint.email);
     } else {
       validateEmail(pateint.email);
-      axios.post(`/signUp`, pateint);
+      axios.post(`/signUp`, pateint).then((response) => {
+        const res = response.data;
+        console.log(response.data.id);
+        if (res.id >= 0 && res.state === "SUCCESS") {
+          navigate("/dash");
+        } else {
+          showAlert();
+        }
+      });
     }
   };
   const emailAlert = document.querySelector(".email__alert");

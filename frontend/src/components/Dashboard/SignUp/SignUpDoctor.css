@@ -177,7 +177,7 @@ form h2 {
   border-radius: 3px;
   display: none;
 }
-
+.name__alert,
 .email__alert,
 .password__alert {
   position: absolute;
