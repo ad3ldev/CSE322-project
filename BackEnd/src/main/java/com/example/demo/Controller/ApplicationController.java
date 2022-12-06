@@ -4,6 +4,7 @@ import com.example.demo.Models.Doctor;
 import com.example.demo.Models.Patient;
 import com.example.demo.Repo.DoctorRepository;
 import com.example.demo.Repo.PatientRepository;
+import com.example.demo.Search.SearchService;
 import com.example.demo.Service.AuthenticationService;
 import com.example.demo.Service.ProfileCreationService;
 import com.example.demo.Utils.Result;
@@ -22,6 +23,9 @@ public class ApplicationController {
     AuthenticationService authService;
     @Autowired
     ProfileCreationService profileCreationService;
+
+    @Autowired
+    SearchService searchService;
 
     @Autowired
     PatientRepository pr;
@@ -45,8 +49,17 @@ public class ApplicationController {
 
     @PostMapping("/login")
     public Result login(@RequestBody String infoString) throws JSONException {
-        return authService.Login(infoString);
+        var x = authService.Login(infoString);
+        System.out.println(x.getDoctor());
+        System.out.println(x.getId());
+        System.out.println(x.getType());
+        return x;
     }
 
+
+    @PostMapping("/searchBySpecialization")
+    public List<Doctor> getDoctorsBySpecialization(@RequestBody String Specialization){
+        return searchService.getDoctorBySpecializaiton(Specialization);
+    }
 
 }

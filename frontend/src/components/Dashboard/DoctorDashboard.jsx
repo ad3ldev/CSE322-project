@@ -3,7 +3,7 @@ const DoctorDashboard = ({ doctor }) => {
 		<div className='dash'>
 			<div className='dash-name'>
 				<h1>
-					Hello Dr. {doctor.type}, id = {doctor.id}
+					Hello Dr.{doctor.doctor.name}
 				</h1>
 			</div>
 			<div className='next-patient'></div>

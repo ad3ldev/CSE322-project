@@ -5,12 +5,12 @@ const PatientDashboard = ({ patient }) => {
 			<div className='dash-name'>
 				{isFemale && (
 					<h1>
-						Hello Mrs. {patient.type}, id = {patient.id}
+						Hello Mrs. {patient.patient.name}
 					</h1>
 				)}
 				{!isFemale && (
 					<h1>
-						Hello Mr. {patient.type}, id = {patient.id}
+						Hello Mr. {patient.patient.name}
 					</h1>
 				)}
 			</div>

@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.print.Doc;
 import java.util.List;
 
 
@@ -18,9 +19,11 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
     )
     Boolean isEmailExist(String email);
     @Query(
-            value = "SELECT id FROM Doctor d WHERE d.email = ?1 AND d.password = ?2",
-            nativeQuery = true
-    )
+            value = "SELECT d.id FROM Doctor d WHERE d.email = ?1 AND d.password = ?2")
     List<Long> findDoctorByEmailAndPassword(String email, String password);
+
+    @Query(
+            value="SELECT d.* from Doctor d where d.specialization = ?1")
+    List<Doctor> getDoctorBySpecialization(String specialization);
 
 }
