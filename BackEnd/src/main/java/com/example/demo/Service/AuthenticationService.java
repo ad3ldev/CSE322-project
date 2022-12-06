@@ -29,16 +29,22 @@ public class AuthenticationService {
         if(type.equals(Type.Doctor.name())){
             //Check if doctor exists
             List<Long> ids = dr.findDoctorByEmailAndPassword(email, password);
-            Doctor doctor = dr.getById(ids.get(0));
-            if(!ids.isEmpty())
+            Doctor doctor;
+            if(!ids.isEmpty()) {
+                doctor = dr.findAllById(ids).get(0);
+                System.out.println(doctor.getEmail());
                 return new Result(State.SUCCESS, ids.get(0), Type.Doctor, null, doctor);
+            }
 
         }else if(type.equals(Type.Patient.name())){
             //Check if patient exists
             List<Long> ids = pr.findPatientByEmailAndPassword(email, password);
-            Patient patient = pr.getById(ids.get(0));
-            if(!ids.isEmpty())
+            Patient patient;
+            if(!ids.isEmpty()) {
+                patient = pr.findAllById(ids).get(0);
+                System.out.println(patient.getEmail());
                 return new Result(State.SUCCESS, ids.get(0), Type.Patient, patient, null);
+            }
         }
         return new Result(State.FAILURE, null, null, null, null);
     }
