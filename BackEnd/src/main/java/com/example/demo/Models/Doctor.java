@@ -3,10 +3,6 @@ package com.example.demo.Models;
 import jakarta.persistence.*;
 import lombok.*;
 
-@ToString
-@Getter
-@Setter
-@EqualsAndHashCode
 @NoArgsConstructor
 @Entity
 @Table
@@ -23,7 +19,7 @@ public class Doctor {
     )
     private long id;
     @Column(nullable = false)
-    private Type type = Type.Doctor;
+    private final Type type = Type.Doctor;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
@@ -127,5 +123,9 @@ public class Doctor {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public long getId() {return id;}
+
+    public Type getType() {return type;}
 
 }
