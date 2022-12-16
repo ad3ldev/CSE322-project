@@ -28,8 +28,6 @@ public class Patient{
     private int age;
     @Column
     private String previousReports;
-    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-    private List<Appointment> appointments;
 
     public void setId(long id) {
         this.id = id;
