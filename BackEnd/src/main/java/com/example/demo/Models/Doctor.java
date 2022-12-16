@@ -3,6 +3,8 @@ package com.example.demo.Models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @NoArgsConstructor
 @Entity
 @Table
@@ -11,12 +13,8 @@ public class Doctor {
     @SequenceGenerator(
             name = "doctor_sequence",
             sequenceName = "doctor_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            generator = "doctor_sequence",
-            strategy = GenerationType.SEQUENCE
-    )
+            allocationSize = 1)
+    @GeneratedValue(generator = "doctor_sequence", strategy = GenerationType.SEQUENCE)
     private long id;
     @Column(nullable = false)
     private final Type type = Type.Doctor;
@@ -38,6 +36,9 @@ public class Doctor {
     private String email;
     @Column(nullable = false)
     private String password;
+
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    private List<Appointment> appointments;
 
     public String getName() {
         return name;
