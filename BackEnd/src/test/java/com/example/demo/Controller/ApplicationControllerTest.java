@@ -46,7 +46,7 @@ class ApplicationControllerTest {
         actualDoctor.setPassword("youssefCSE");
         actualDoctor.setSpecialization(DoctorSpeciality.Oncologist);
         actualDoctor.setYearsOfExperience(3);
-        actualDoctor.setType(Type.Doctor);
+
 
         ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
         String doctorJsonString = ow.writeValueAsString(actualDoctor);
@@ -97,7 +97,7 @@ class ApplicationControllerTest {
         actualDoctor.setPassword("youssefCSE");
         actualDoctor.setSpecialization(DoctorSpeciality.Oncologist);
         actualDoctor.setYearsOfExperience(3);
-        actualDoctor.setType(Type.Doctor);
+
 
         ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
         String doctorJsonString = ow.writeValueAsString(actualDoctor);
