@@ -3,10 +3,8 @@ package com.example.demo.Models;
 import jakarta.persistence.*;
 import lombok.*;
 
-@ToString
-@Getter
-@Setter
-@EqualsAndHashCode
+import java.util.List;
+
 @NoArgsConstructor
 @Entity
 @Table
@@ -15,15 +13,11 @@ public class Doctor {
     @SequenceGenerator(
             name = "doctor_sequence",
             sequenceName = "doctor_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            generator = "doctor_sequence",
-            strategy = GenerationType.SEQUENCE
-    )
+            allocationSize = 1)
+    @GeneratedValue(generator = "doctor_sequence", strategy = GenerationType.SEQUENCE)
     private long id;
     @Column(nullable = false)
-    private Type type = Type.Doctor;
+    private final Type type = Type.Doctor;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
@@ -100,6 +94,18 @@ public class Doctor {
         this.password = password;
     }
 
+//    public Doctor() {
+//        this.name = "";
+//        this.specialization = DoctorSpeciality.Surgeon;
+//        this.yearsOfExperience = 0;
+//        this.address = "";
+//        this.age = 25;
+//        this.consultationPrice = 200;
+//        this.followUpPrice = 100;
+//        this.email = "";
+//        this.password = "";
+//    }
+
     public void setConsultationPrice(int consultationPrice) {
         this.consultationPrice = consultationPrice;
     }
@@ -127,5 +133,9 @@ public class Doctor {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public long getId() {return id;}
+
+    public Type getType() {return type;}
 
 }

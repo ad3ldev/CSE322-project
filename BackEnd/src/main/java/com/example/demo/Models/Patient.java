@@ -3,6 +3,8 @@ package com.example.demo.Models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table
 public class Patient{
