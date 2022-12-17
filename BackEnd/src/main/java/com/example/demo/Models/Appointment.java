@@ -39,7 +39,7 @@ public class Appointment {
         return this.appointmentPrimaryData.getPatientId();
     }
 
-    public void setPatient(long patientId) {
+    public void setPatientId(long patientId) {
         this.appointmentPrimaryData.setPatientId(patientId);
     }
 
