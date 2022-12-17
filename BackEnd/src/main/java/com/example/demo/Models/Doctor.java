@@ -94,18 +94,6 @@ public class Doctor {
         this.password = password;
     }
 
-//    public Doctor() {
-//        this.name = "";
-//        this.specialization = DoctorSpeciality.Surgeon;
-//        this.yearsOfExperience = 0;
-//        this.address = "";
-//        this.age = 25;
-//        this.consultationPrice = 200;
-//        this.followUpPrice = 100;
-//        this.email = "";
-//        this.password = "";
-//    }
-
     public void setConsultationPrice(int consultationPrice) {
         this.consultationPrice = consultationPrice;
     }
