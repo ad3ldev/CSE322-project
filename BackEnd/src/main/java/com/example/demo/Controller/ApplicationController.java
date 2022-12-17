@@ -58,17 +58,24 @@ public class ApplicationController {
 
 
     @PostMapping("/searchBySpecialization")
-    public List<Doctor> getDoctorsBySpecialization(@RequestBody String Specialization){
-        return searchService.getDoctorBySpecializaiton(Specialization);
+    public List<Doctor> getDoctorsBySpecialization(@RequestBody String specialization){
+        specialization = specialization.replace("=", "");
+        var listOfDoctors =  searchService.getDoctorBySpecializaiton(DoctorSpeciality.valueOf(specialization).ordinal());
+        return listOfDoctors;
     }
-    
+
+    @PostMapping("/searchByName")
+    public List<Doctor> getDoctorByName(@RequestBody String name){
+        return searchService.getDoctorByName(name);
+    }
+
     @PostMapping("/makeAppointment")
-    public Appointment_Result makeAppointment(@RequestBody Appointment appointment){
-        return appointmentService.addAppointment(appointment);
+    public Appointment_Result makeAppointment(@RequestBody String json) throws JSONException, JsonProcessingException {
+        return appointmentService.addAppointment(json);
     }
     @PostMapping("/cancelAppointment")
-    public Appointment_Result cancelApppointment(@RequestBody Appointment appointment){
-        return appointmentService.deleteAppointment(appointment);
+    public Appointment_Result cancelApppointment(@RequestBody String json) throws JSONException, JsonProcessingException {
+        return appointmentService.deleteAppointment(json);
     }
 
 }

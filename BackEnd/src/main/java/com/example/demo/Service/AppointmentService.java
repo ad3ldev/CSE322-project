@@ -3,7 +3,13 @@ package com.example.demo.Service;
 import com.example.demo.Exception.BadRequestException;
 import com.example.demo.Models.Appointment;
 import com.example.demo.Repo.AppointmentRepository;
+import com.example.demo.Utils.Appointment_Result;
+import com.example.demo.Utils.State;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,6 +19,12 @@ import java.util.List;
 @Service
 public class AppointmentService {
     private final AppointmentRepository appointmentRepository;
+
+    public static Appointment jsonToAppointment(String json) throws JSONException, JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        Appointment appointment = mapper.readValue(json, Appointment.class);
+        return appointment;
+    }
     public List<Appointment> getAllAppointments() {
         return appointmentRepository.findAll();
     }
@@ -34,7 +46,8 @@ public class AppointmentService {
         return patientAppointments;
     }
 
-    public Appointment_Result addAppointment(Appointment appointment) {
+    public Appointment_Result addAppointment(String appointmentStr) throws JSONException, JsonProcessingException {
+        Appointment appointment = jsonToAppointment(appointmentStr);
         boolean isAppointmentExist = appointmentRepository.existsById(appointment.getAppointmentPrimaryData());
         if (isAppointmentExist) {
             return new Appointment_Result(State.FAILURE, "Appointment is taken!", null);
@@ -43,7 +56,8 @@ public class AppointmentService {
         return new Appointment_Result(State.SUCCESS, "Appointment successfully saved.", appointment);
     }
 
-    public Appointment_Result deleteAppointment(Appointment appointment) {
+    public Appointment_Result deleteAppointment(String appointmentStr) throws JSONException, JsonProcessingException {
+        Appointment appointment = jsonToAppointment(appointmentStr);
         boolean isAppointmentExist = appointmentRepository.existsById(appointment.getAppointmentPrimaryData());
         if (!isAppointmentExist) {
             return new Appointment_Result(State.FAILURE, "Appointment doesb't Exist!", null);
