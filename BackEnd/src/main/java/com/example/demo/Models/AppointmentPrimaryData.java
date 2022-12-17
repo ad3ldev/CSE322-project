@@ -2,7 +2,6 @@ package com.example.demo.Models;
 
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -16,16 +15,13 @@ public class AppointmentPrimaryData implements Serializable {
     @Column
     private long patientId;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Column(nullable = false)
+    @Column
     private Date date;
 
-    @DateTimeFormat(pattern = "HH:mm:ss")
-    @Column(nullable = false)
+    @Column
     private Time startTime;
 
-    @DateTimeFormat(pattern = "HH:mm:ss")
-    @Column(nullable = false)
+    @Column
     private Time endTime;
     public long getDoctorId() {
         return doctorId;
