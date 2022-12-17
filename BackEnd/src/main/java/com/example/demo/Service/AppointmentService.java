@@ -34,19 +34,21 @@ public class AppointmentService {
         return patientAppointments;
     }
 
-    public void addAppointment(Appointment appointment) {
+    public Appointment_Result addAppointment(Appointment appointment) {
         boolean isAppointmentExist = appointmentRepository.existsById(appointment.getAppointmentPrimaryData());
         if (isAppointmentExist) {
-            throw new BadRequestException("Appointment is taken!");
+            return new Appointment_Result(State.FAILURE, "Appointment is taken!", null);
         }
         appointmentRepository.save(appointment);
+        return new Appointment_Result(State.SUCCESS, "Appointment successfully saved.", appointment);
     }
 
-    public void deleteAppointment(Appointment appointment) {
+    public Appointment_Result deleteAppointment(Appointment appointment) {
         boolean isAppointmentExist = appointmentRepository.existsById(appointment.getAppointmentPrimaryData());
         if (!isAppointmentExist) {
-            throw new BadRequestException("Appointment is not Exist!");
+            return new Appointment_Result(State.FAILURE, "Appointment doesb't Exist!", null);
         }
         appointmentRepository.deleteById(appointment.getAppointmentPrimaryData());
+        return new Appointment_Result(State.SUCCESS, "Appointment successfully deleted.", appointment);
     }
 }

@@ -61,5 +61,14 @@ public class ApplicationController {
     public List<Doctor> getDoctorsBySpecialization(@RequestBody String Specialization){
         return searchService.getDoctorBySpecializaiton(Specialization);
     }
+    
+    @PostMapping("/makeAppointment")
+    public Appointment_Result makeAppointment(@RequestBody Appointment appointment){
+        return appointmentService.addAppointment(appointment);
+    }
+    @PostMapping("/cancelAppointment")
+    public Appointment_Result cancelApppointment(@RequestBody Appointment appointment){
+        return appointmentService.deleteAppointment(appointment);
+    }
 
 }
