@@ -6,7 +6,6 @@ import com.example.demo.Repo.AppointmentRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -16,26 +15,9 @@ public class AppointmentService {
     public List<Appointment> getAllAppointments() {
         return appointmentRepository.findAll();
     }
-    public List<Appointment> getDoctorAppointments(long doctorId) {
-        List<Appointment> appointments = getAllAppointments();
-        List<Appointment> doctorAppointments = new ArrayList<>();
-        for (Appointment appointment: appointments)
-            if (appointment.getDoctorId() == doctorId)
-                doctorAppointments.add(appointment);
-        return doctorAppointments;
-    }
-
-    public List<Appointment> getPatientAppointments(long patientId) {
-        List<Appointment> appointments = getAllAppointments();
-        List<Appointment> patientAppointments = new ArrayList<>();
-        for (Appointment appointment: appointments)
-            if (appointment.getPatientId() == patientId)
-                patientAppointments.add(appointment);
-        return patientAppointments;
-    }
 
     public void addAppointment(Appointment appointment) {
-        boolean isAppointmentExist = appointmentRepository.existsById(appointment.getAppointmentPrimaryData());
+        boolean isAppointmentExist = appointmentRepository.isAppointmentExist(appointment.getAppointmentPrimaryData());
         if (isAppointmentExist) {
             throw new BadRequestException("Appointment is taken!");
         }
@@ -43,7 +25,7 @@ public class AppointmentService {
     }
 
     public void deleteAppointment(Appointment appointment) {
-        boolean isAppointmentExist = appointmentRepository.existsById(appointment.getAppointmentPrimaryData());
+        boolean isAppointmentExist = appointmentRepository.isAppointmentExist(appointment.getAppointmentPrimaryData());
         if (!isAppointmentExist) {
             throw new BadRequestException("Appointment is not Exist!");
         }
