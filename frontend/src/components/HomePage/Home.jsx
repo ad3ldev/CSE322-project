@@ -1,8 +1,12 @@
 import "./Home.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useLocation } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const patient = state;
   const [bookingInfo, setInfo] = useState({
     name: "",
     email: "",
@@ -17,9 +21,16 @@ const Home = () => {
   };
 
   const sendInfo = (e) => {
+    axios
+      .post("/searchBySpecialization", bookingInfo.specialization)
+      .then((response) => {
+        const res = { doctors: response.data, patient: patient };
+        console.log(res);
+        navigate("/booking", { state: res });
+      });
     e.preventDefault();
-    navigate("/booking", { state: bookingInfo });
   };
+
   return (
     <div className="ggg">
       <div class="header">
@@ -524,11 +535,7 @@ const Home = () => {
             <h3>contact info</h3>
             <a href="#">
               {" "}
-              <i class="fas fa-phone"></i> +123-456-7859
-            </a>
-            <a href="#">
-              {" "}
-              <i class="fas fa-phone"></i> +356-481-0286
+              <i class="fas fa-phone"></i> +123456789
             </a>
             <a href="#">
               {" "}
@@ -540,7 +547,7 @@ const Home = () => {
             </a>
             <a href="#">
               {" "}
-              <i class="fas fa-map-marker-alt"></i> dhaka, Bangladesh - 1000
+              <i class="fas fa-map-marker-alt"></i> Egypt, Alexandria
             </a>
           </div>
           <div class="box">
