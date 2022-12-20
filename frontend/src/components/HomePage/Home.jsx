@@ -94,6 +94,7 @@ const Home = () => {
           <a href="#about">about</a>
           <a href="#doctors">doctors</a>
           <a href="#book">book</a>
+          <a href="#appointments">appointments</a>
           <a href="#review">reviews</a>
           <a href="#blogs">blogs</a>
         </nav>
