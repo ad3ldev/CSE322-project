@@ -24,14 +24,7 @@ const Login = () => {
 		setLoggedPerson(user);
 	};
 
-	// EMAIL VALIDATION
-	/* const form = document.querySelector(".contact__form");
-  const email = document.querySelector("#email");
-  const password = document.querySelector("#password");
-  const submitBtn = document.querySelector(".submitBtn");*/
 	const emailAlert = document.querySelector(".email__alert");
-	const passwordAlert = document.querySelector(".password__alert");
-
 	function submit(e) {
 		e.preventDefault();
 		if (
@@ -79,14 +72,6 @@ const Login = () => {
 	function removeAlert() {
 		emailAlert.style.display = "none";
 	}
-
-	/*  // password alerts
-  function showPasswordAlert() {
-    passwordAlert.style.display = "block";
-  }
-  function removePasswordAlert() {
-    passwordAlert.style.display = "none";
-  } */
 	return (
 		<div className='container'>
 			<form className='contact__form'>
