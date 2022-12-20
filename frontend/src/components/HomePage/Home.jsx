@@ -412,7 +412,10 @@ const Home = () => {
                 >
                   Date: {app.date} at {app.startTime} pm.
                 </p>
-                <button onClick={() => cancelAppointment(app)}>
+                <button
+                  onClick={() => cancelAppointment(app)}
+                  className="cancel-btn"
+                >
                   cancel appointment
                 </button>
               </div>

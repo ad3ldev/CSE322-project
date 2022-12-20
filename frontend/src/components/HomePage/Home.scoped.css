@@ -257,14 +257,15 @@ section:nth-child(even) {
   padding-top: 2em;
 }
 .doctors .box-container .box .share a {
-  height: 5em;
-  width: 5em;
-  line-height: 4.5em;
-  font-size: 2em;
+  height: 3em;
+  width: 3em;
+  line-height: 2.6em;
+  font-size: 1.5em;
   color: var(--green);
   border: var(--border);
   border-radius: 0.5em;
   margin: 0.3em;
+  text-decoration: none;
 }
 .doctors .box-container .box .share a:hover {
   background: var(--green);
@@ -353,6 +354,19 @@ section:nth-child(even) {
   line-height: 1.8;
   font-size: 1.6em;
   padding-top: 4em;
+}
+.review .box-container .box .cancel-btn {
+  border: 2px solid var(--green);
+  margin-top: 10px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
+}
+.review .box-container .box .cancel-btn:hover {
+  background-color: var(--green);
+  border-color: white;
+  color: white;
+  cursor: pointer;
 }
 .review .box-container .box::before {
   content: "";
