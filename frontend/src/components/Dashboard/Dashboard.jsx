@@ -1,6 +1,6 @@
 import DoctorDashboard from "./DoctorDashboard";
 import PatientDashboard from "./PatientDashboard";
-import "./Dashboard.css";
+import "./Dashboard.scoped.css";
 import { useLocation } from "react-router-dom";
 const Dashboard = () => {
 	const { state } = useLocation();
