@@ -20,11 +20,6 @@ import java.util.List;
 public class AppointmentService {
     private final AppointmentRepository appointmentRepository;
 
-    public static Appointment jsonToAppointment(String json) throws JSONException, JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        Appointment appointment = mapper.readValue(json, Appointment.class);
-        return appointment;
-    }
     public List<Appointment> getAllAppointments() {
         return appointmentRepository.findAll();
     }
@@ -46,8 +41,7 @@ public class AppointmentService {
         return patientAppointments;
     }
 
-    public Appointment_Result addAppointment(String appointmentStr) throws JSONException, JsonProcessingException {
-        Appointment appointment = jsonToAppointment(appointmentStr);
+    public Appointment_Result addAppointment(Appointment appointment) throws JSONException, JsonProcessingException {
         boolean isAppointmentExist = appointmentRepository.existsById(appointment.getAppointmentPrimaryData());
         if (isAppointmentExist) {
             return new Appointment_Result(State.FAILURE, "Appointment is taken!", null);
@@ -56,11 +50,10 @@ public class AppointmentService {
         return new Appointment_Result(State.SUCCESS, "Appointment successfully saved.", appointment);
     }
 
-    public Appointment_Result deleteAppointment(String appointmentStr) throws JSONException, JsonProcessingException {
-        Appointment appointment = jsonToAppointment(appointmentStr);
+    public Appointment_Result deleteAppointment(Appointment appointment) throws JSONException, JsonProcessingException {
         boolean isAppointmentExist = appointmentRepository.existsById(appointment.getAppointmentPrimaryData());
         if (!isAppointmentExist) {
-            return new Appointment_Result(State.FAILURE, "Appointment doesb't Exist!", null);
+            return new Appointment_Result(State.FAILURE, "Appointment doesn't Exist!", null);
         }
         appointmentRepository.deleteById(appointment.getAppointmentPrimaryData());
         return new Appointment_Result(State.SUCCESS, "Appointment successfully deleted.", appointment);
