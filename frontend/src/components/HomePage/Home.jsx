@@ -2,6 +2,23 @@ import "./Home.scoped.css";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import aboutImg from "./image/about-img.svg";
+import blog1 from "./image/blog-1.jpg";
+import blog2 from "./image/blog-2.jpg";
+import blog3 from "./image/blog-3.jpg";
+import bookImg from "./image/book-img.svg";
+import doc1 from "./image/doc-1.jpg";
+import doc2 from "./image/doc-2.jpg";
+import doc3 from "./image/doc-3.jpg";
+import doc4 from "./image/doc-4.jpg";
+import doc5 from "./image/doc-5.jpg";
+import doc6 from "./image/doc-6.jpg";
+import heartBeatSolid from "./image/heartbeat-solid.svg";
+import homeImg from "./image/home-img.svg";
+import pic1 from "./image/pic-1.png";
+import pic2 from "./image/pic-2.png";
+import pic3 from "./image/pic-3.png";
+
 const Home = () => {
 	const navigate = useNavigate();
 	const { state } = useLocation();
@@ -58,7 +75,7 @@ const Home = () => {
 
 			<section class='home' id='home'>
 				<div class='image'>
-					<img src='./image/home-img.svg' alt='home-img.svg' />
+					<img src={homeImg} alt='home-img.svg' />
 				</div>
 				<div class='content'>
 					<h3>stay safe, stay healthy</h3>
@@ -175,7 +192,7 @@ const Home = () => {
 				</h1>
 				<div class='row'>
 					<div class='image'>
-						<img src='./image/about-img.svg' alt='' />
+						<img src={aboutImg} alt='' />
 					</div>
 					<div class='content'>
 						<h3>we take care of your healthy life</h3>
@@ -203,7 +220,7 @@ const Home = () => {
 				</h1>
 				<div class='box-container'>
 					<div class='box'>
-						<img src='./image/doc-1.jpg' alt='' />
+						<img src={doc1} alt='' />
 						<h3>Dr. john deo</h3>
 						<span>expert doctor</span>
 						<div class='share'>
@@ -214,7 +231,7 @@ const Home = () => {
 						</div>
 					</div>
 					<div class='box'>
-						<img src='./image/doc-2.jpg' alt='' />
+						<img src={doc2} alt='' />
 						<h3>Dr. Pullen</h3>
 						<span>expert doctor</span>
 						<div class='share'>
@@ -225,7 +242,7 @@ const Home = () => {
 						</div>
 					</div>
 					<div class='box'>
-						<img src='./image/doc-3.jpg' alt='' />
+						<img src={doc3} alt='' />
 						<h3> Dr. Swallow</h3>
 						<span>expert doctor</span>
 						<div class='share'>
@@ -236,7 +253,7 @@ const Home = () => {
 						</div>
 					</div>
 					<div class='box'>
-						<img src='./image/doc-4.jpg' alt='' />
+						<img src={doc4} alt='' />
 						<h3>Dr. Mangle</h3>
 						<span>expert doctor</span>
 						<div class='share'>
@@ -247,7 +264,7 @@ const Home = () => {
 						</div>
 					</div>
 					<div class='box'>
-						<img src='./image/doc-5.jpg' alt='' />
+						<img src={doc5} alt='' />
 						<h3>Dr. Fillmore</h3>
 						<span>expert doctor</span>
 						<div class='share'>
@@ -258,7 +275,7 @@ const Home = () => {
 						</div>
 					</div>
 					<div class='box'>
-						<img src='./image/doc-6.jpg' alt='' />
+						<img src={doc6} alt='' />
 						<h3>Dr. Watamaniuk</h3>
 						<span>expert doctor</span>
 						<div class='share'>
@@ -277,7 +294,7 @@ const Home = () => {
 				</h1>
 				<div class='row'>
 					<div class='image'>
-						<img src='./image/book-img.svg' alt='' />
+						<img src={bookImg} alt='' />
 					</div>
 					<form action=''>
 						<h3>book appointment</h3>
@@ -364,7 +381,7 @@ const Home = () => {
 				</h1>
 				<div class='box-container'>
 					<div class='box'>
-						<img src='./image/pic-1.png' alt='' />
+						<img src={pic1} alt='' />
 						<h3>Jazmin Archer</h3>
 						<div class='stars'>
 							<i class='fas fa-star' />
@@ -382,7 +399,7 @@ const Home = () => {
 						</p>
 					</div>
 					<div class='box'>
-						<img src='./image/pic-2.png' alt='' />
+						<img src={pic2} alt='' />
 						<h3>Jazmin Archer</h3>
 						<div class='stars'>
 							<i class='fas fa-star' />
@@ -400,7 +417,7 @@ const Home = () => {
 						</p>
 					</div>
 					<div class='box'>
-						<img src='./image/pic-3.png' alt='' />
+						<img src={pic3} alt='' />
 						<h3>Abdiel Galloway</h3>
 						<div class='stars'>
 							<i class='fas fa-star' />
@@ -427,7 +444,7 @@ const Home = () => {
 				<div class='box-container'>
 					<div class='box'>
 						<div class='image'>
-							<img src='./image/blog-1.jpg' alt='' />
+							<img src={blog1} alt='' />
 						</div>
 						<div class='content'>
 							<div class='icon'>
@@ -451,7 +468,7 @@ const Home = () => {
 					</div>
 					<div class='box'>
 						<div class='image'>
-							<img src='./image/blog-2.jpg' alt='' />
+							<img src={blog2} alt='' />
 						</div>
 						<div class='content'>
 							<div class='icon'>
@@ -474,7 +491,7 @@ const Home = () => {
 					</div>
 					<div class='box'>
 						<div class='image'>
-							<img src='./image/blog-3.jpg' alt='' />
+							<img src={blog3} alt='' />
 						</div>
 						<div class='content'>
 							<div class='icon'>
