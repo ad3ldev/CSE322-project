@@ -414,7 +414,8 @@ const Home = () => {
 						<div class='content'>
 							<div class='icon'>
 								<a href='#'>
-									<i class='fas fa-calendar' />1st may, 2021
+									<i class='fas fa-calendar' />
+									1st may, 2021
 								</a>
 								<a href='#'>
 									<i class='fas fa-user' /> by admin
