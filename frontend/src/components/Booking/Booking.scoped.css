@@ -4,6 +4,7 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
 	gap: 2em;
+	margin: 4em;
 }
 .doctors .box-container .box {
 	text-align: center;
@@ -48,4 +49,16 @@
 	background: var(--green);
 	color: #fff;
 	box-shadow: var(--box-shadow);
+}
+.heading {
+	text-align: center;
+	text-shadow: var(--text-shadow);
+	text-transform: uppercase;
+	color: var(--black);
+	font-size: 5em;
+	letter-spacing: 0.4em;
+}
+.heading span {
+	text-transform: uppercase;
+	color: var(--green);
 }

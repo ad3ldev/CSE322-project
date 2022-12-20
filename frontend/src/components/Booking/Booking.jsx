@@ -31,18 +31,16 @@ const Booking = () => {
 	};
 
 	return (
-		<div>
-			<section
-				class='doctors'
-				id='doctors'
-				style={{
-					fontSize: "62.5%",
-					overflowX: "hidden",
-					scrollPaddingTop: "7rem",
-					scrollBehavior: "smooth",
-					background: "none",
-					backgroundColor: "white",
-				}}>
+		<div
+			style={{
+				fontSize: "62.5%",
+				overflowX: "hidden",
+				scrollPaddingTop: "7rem",
+				scrollBehavior: "smooth",
+				background: "none",
+				backgroundColor: "white",
+			}}>
+			<section class='doctors' id='doctors'>
 				<h1 class='heading'>
 					Best <span>doctors</span> for{" "}
 					{doctors.doctors[0].specialization}
