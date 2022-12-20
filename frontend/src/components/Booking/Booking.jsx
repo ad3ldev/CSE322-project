@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./Booking.scoped.css";
 import axios from "axios";
-
 import PopUp from "./PopUp";
 const Booking = () => {
 	const { state } = useLocation();
