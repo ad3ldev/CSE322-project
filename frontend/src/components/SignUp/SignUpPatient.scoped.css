@@ -5,6 +5,12 @@
 	height: 100vh;
 	margin-top: 100px;
 	margin-bottom: 100px;
+
+	background: url("/public/background.jpg");
+
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 form {

@@ -3,6 +3,11 @@
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+	background: url("/public/background.jpg");
+
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 form {

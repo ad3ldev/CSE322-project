@@ -1,8 +1,7 @@
 import "./Home.scoped.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
 const Home = () => {
 	const navigate = useNavigate();
 	const { state } = useLocation();
@@ -32,7 +31,15 @@ const Home = () => {
 	};
 
 	return (
-		<div className='ggg'>
+		<div
+			className='ggg'
+			style={{
+				fontSize: "62.5%",
+				overflowX: "hidden",
+				scrollPaddingTop: "7rem",
+				scrollBehavior: "smooth",
+				background: "none",
+			}}>
 			<div class='header'>
 				<a href='#' class='logo'>
 					<i class='fas fa-heartbeat' /> medcare.
@@ -425,7 +432,8 @@ const Home = () => {
 						<div class='content'>
 							<div class='icon'>
 								<a href='#'>
-									<i class='fas fa-calendar' />1st may, 2021
+									<i class='fas fa-calendar' />
+									1st may, 2021
 								</a>
 								<a href='#'>
 									<i class='fas fa-user' /> by admin
