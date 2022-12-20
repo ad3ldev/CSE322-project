@@ -1,17 +1,17 @@
 package com.example.demo.Service;
 
-import com.example.demo.Exception.BadRequestException;
 import com.example.demo.Models.Appointment;
+import com.example.demo.Models.Type;
 import com.example.demo.Repo.AppointmentRepository;
 import com.example.demo.Utils.Appointment_Result;
 import com.example.demo.Utils.State;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,16 +41,40 @@ public class AppointmentService {
         return patientAppointments;
     }
 
-    public Appointment_Result addAppointment(Appointment appointment) throws JSONException, JsonProcessingException {
+    public Appointment_Result addAppointment(Appointment appointment) {
         boolean isAppointmentExist = appointmentRepository.existsById(appointment.getAppointmentPrimaryData());
         if (isAppointmentExist) {
             return new Appointment_Result(State.FAILURE, "Appointment is taken!", null);
+        }
+        if (isUserBusy(appointment, Type.Doctor)) {
+            return new Appointment_Result(State.FAILURE, "The Doctor already has an appointment at this time!", null);
+        }
+        if (isUserBusy(appointment, Type.Patient)) {
+            return new Appointment_Result(State.FAILURE, "The Patient already has an appointment at this time!", null);
         }
         appointmentRepository.save(appointment);
         return new Appointment_Result(State.SUCCESS, "Appointment successfully saved.", appointment);
     }
 
-    public Appointment_Result deleteAppointment(Appointment appointment) throws JSONException, JsonProcessingException {
+    private boolean isUserBusy(Appointment appointment, Type type) {
+        Date date = appointment.getDate();
+        Time startTime = appointment.getStartTime();
+        Time endTime = appointment.getEndTime();
+        List<Appointment> appointments;
+        if (type == Type.Doctor)
+            appointments = getDoctorAppointments(appointment.getDoctorId());
+        else
+            appointments = getPatientAppointments(appointment.getPatientId());
+        for (Appointment app: appointments) {
+            if (app.getStartTime().equals(startTime)
+                    && app.getEndTime().equals(endTime)
+                    && app.getDate().equals(date))
+                return true;
+        }
+        return false;
+    }
+
+    public Appointment_Result deleteAppointment(Appointment appointment) {
         boolean isAppointmentExist = appointmentRepository.existsById(appointment.getAppointmentPrimaryData());
         if (!isAppointmentExist) {
             return new Appointment_Result(State.FAILURE, "Appointment doesn't Exist!", null);
