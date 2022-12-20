@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./Booking.scoped.css";
+import doc1 from "./doc-1.jpg";
 import axios from "axios";
+
 import PopUp from "./PopUp";
 const Booking = () => {
 	const { state } = useLocation();
@@ -29,7 +31,15 @@ const Booking = () => {
 	};
 
 	return (
-		<div>
+		<div
+			style={{
+				fontSize: "62.5%",
+				overflowX: "hidden",
+				scrollPaddingTop: "7rem",
+				scrollBehavior: "smooth",
+				background: "none",
+				backgroundColor: "white",
+			}}>
 			<section class='doctors' id='doctors'>
 				<h1 class='heading'>
 					Best <span>doctors</span> for{" "}
@@ -37,8 +47,12 @@ const Booking = () => {
 				</h1>
 				<div class='box-container'>
 					{doctors.doctors.map((doc) => (
-						<div class='box' id={doc.id} onClick={() => Form(doc)}>
-							<img src='./doc-1.jpg' alt='' />
+						<div
+							class='box'
+							key={doc.id}
+							id={doc.id}
+							onClick={() => Form(doc)}>
+							<img src={doc1} alt='' />
 							<h3>{doc.name}</h3>
 							<span>
 								consultation price : {doc.consultationPrice}$
