@@ -13,6 +13,8 @@
   border-radius: 0.5em;
   box-shadow: var(--box-shadow);
   padding: 2em;
+  margin-left: auto;
+  margin-right: auto;
 }
 .doctors .box-container .box :hover {
   cursor: pointer;
