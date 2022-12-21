@@ -402,7 +402,10 @@ const Home = () => {
             </div>
           ) : (
             appointments.map((app) => (
-              <div class="box">
+              <div
+                key={app.patientId + app.doctorId + app.date + app.startTime}
+                class="box"
+              >
                 <img src={pic1} alt="" />
                 <h3>doc name</h3>
                 <p
@@ -414,6 +417,7 @@ const Home = () => {
                   Date: {app.date} at {app.startTime} pm.
                 </p>
                 <button
+                  id={app.doctorId + app.patientId}
                   onClick={() => cancelAppointment(app)}
                   className="cancel-btn"
                 >

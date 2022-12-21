@@ -332,6 +332,9 @@ section:nth-child(even) {
   position: relative;
   overflow: hidden;
   z-index: 0;
+
+  margin-right: auto;
+  margin-left: auto;
 }
 .review .box-container .box img {
   height: 10em;
