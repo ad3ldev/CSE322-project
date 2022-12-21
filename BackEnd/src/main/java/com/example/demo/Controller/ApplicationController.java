@@ -92,9 +92,10 @@ public class ApplicationController {
         id = id.replace("=", "");
         return appointmentService.getPatientAppointments(Integer.parseInt(id));
     }
-    @PostMapping("/getDoctorAppointments")
-    public List<Appointment> getDoctorAppointments(@RequestBody Long id){
-        return appointmentService.getDoctorAppointments(id);
-    }
 
+    @PostMapping("/getDoctorAppointments")
+    public List<Appointment> getDoctorAppointments(@RequestBody String id){
+        id = id.replace("=", "");
+        return appointmentService.getDoctorAppointments(Integer.parseInt(id));
+    }
 }
