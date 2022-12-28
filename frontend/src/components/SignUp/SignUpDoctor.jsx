@@ -1,4 +1,4 @@
-import "./SignUpDoctor.scoped.css";
+import "./SignUpDoctor.css";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -56,9 +56,11 @@ const SignUpDoctor = () => {
 		}
 	};
 	const emailAlert = document.querySelector(".email__alert");
+	const passwordAlert = document.querySelector(".password__alert");
 
 	const validateEmail = (address) => {
-		const check = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		const check =
+			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		if (check.test(address) & (address !== null) & (address !== "")) {
 			check.test(address);
 		} else {
@@ -81,7 +83,7 @@ const SignUpDoctor = () => {
 			<form className='contact__form'>
 				<h2>Welcome, doctor</h2>
 				<div className='Dname'>
-					<i className='far fa-envelope icon' />
+					<i className='far fa-envelope icon'></i>
 					<input
 						type='text'
 						placeholder='User Name'
@@ -96,7 +98,7 @@ const SignUpDoctor = () => {
 					</small>
 				</div>
 				<div className='Demail'>
-					<i className='far fa-envelope icon' />
+					<i className='far fa-envelope icon'></i>
 					<input
 						type='text'
 						placeholder='Email'
@@ -112,7 +114,7 @@ const SignUpDoctor = () => {
 				</div>
 
 				<div className='Demail'>
-					<i className='far fa-envelope icon' />
+					<i className='far fa-envelope icon'></i>
 					<input
 						type='text'
 						placeholder='Address'
@@ -128,7 +130,7 @@ const SignUpDoctor = () => {
 				</div>
 
 				<div className='Demail'>
-					<i className='fas fa-lock icon' />
+					<i className='fas fa-lock icon'></i>
 					<input
 						type='password'
 						placeholder='Password'
@@ -145,7 +147,7 @@ const SignUpDoctor = () => {
 				</div>
 
 				<div className='Dage'>
-					<i className='far fa-envelope icon' />
+					<i className='far fa-envelope icon'></i>
 					<input
 						type='text'
 						placeholder='Age'
@@ -199,7 +201,7 @@ const SignUpDoctor = () => {
 				</div>
 
 				<div className='Years'>
-					<i className='far fa-envelope icon' />
+					<i className='far fa-envelope icon'></i>
 					<input
 						type='text'
 						placeholder='Years of experience'
@@ -214,7 +216,7 @@ const SignUpDoctor = () => {
 					</small>
 				</div>
 				<div className='Cprise'>
-					<i className='far fa-envelope icon' />
+					<i className='far fa-envelope icon'></i>
 					<input
 						type='text'
 						placeholder='consultation Price'
@@ -229,7 +231,7 @@ const SignUpDoctor = () => {
 					</small>
 				</div>
 				<div className='Fprise'>
-					<i className='far fa-envelope icon' />
+					<i className='far fa-envelope icon'></i>
 					<input
 						type='text'
 						placeholder='followUp Price'
