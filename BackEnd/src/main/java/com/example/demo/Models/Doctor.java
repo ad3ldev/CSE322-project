@@ -37,6 +37,9 @@ public class Doctor {
     @Column(nullable = false)
     private String password;
 
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    private List<Appointment> appointments;
+
     public String getName() {
         return name;
     }
