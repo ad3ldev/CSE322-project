@@ -3,15 +3,17 @@ package com.example.demo.Models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table
-public class Patient {
+public class Patient{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column
-    private final Type type = Type.Patient;
+    private Type type;
     @Column
     private String name;
     @Column
@@ -26,9 +28,15 @@ public class Patient {
     private int age;
     @Column
     private String previousReports;
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+    private List<Appointment> appointments;
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 
     public void setName(String name) {
@@ -95,7 +103,9 @@ public class Patient {
         return previousReports;
     }
 
-    public Patient(String name, String email, String password, String gender, String address, int age, String previousReports) {
+    public Patient(long id, Type type, String name, String email, String password, String gender, String address, int age, String previousReports) {
+        this.id = id;
+        this.type = type;
         this.name = name;
         this.email = email;
         this.password = password;
