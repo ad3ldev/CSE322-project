@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Login.css";
+import "./Login.scoped.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -24,14 +24,7 @@ const Login = () => {
 		setLoggedPerson(user);
 	};
 
-	// EMAIL VALIDATION
-	/* const form = document.querySelector(".contact__form");
-  const email = document.querySelector("#email");
-  const password = document.querySelector("#password");
-  const submitBtn = document.querySelector(".submitBtn");*/
 	const emailAlert = document.querySelector(".email__alert");
-	const passwordAlert = document.querySelector(".password__alert");
-
 	function submit(e) {
 		e.preventDefault();
 		if (
@@ -47,7 +40,11 @@ const Login = () => {
 			axios.post("/login", loggedPerson).then((response) => {
 				const res = response.data;
 				if (res.id >= 0 && res.state === "SUCCESS") {
-					navigate("/dashboard", { state: res });
+					if (loggedPerson.type === "Patient") {
+						navigate("/home", { state: res });
+					} else if (loggedPerson.type === "Docotr") {
+						navigate("/dashboard", { state: res });
+					}
 				} else {
 					showAlert();
 				}
@@ -56,8 +53,7 @@ const Login = () => {
 	}
 
 	const validateEmail = (address) => {
-		const check =
-			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		const check = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		if (check.test(address) & (address !== null) & (address !== "")) {
 			check.test(address);
 			setConfirm(1);
@@ -76,14 +72,6 @@ const Login = () => {
 	function removeAlert() {
 		emailAlert.style.display = "none";
 	}
-
-	/*  // password alerts
-  function showPasswordAlert() {
-    passwordAlert.style.display = "block";
-  }
-  function removePasswordAlert() {
-    passwordAlert.style.display = "none";
-  } */
 	return (
 		<div className='container'>
 			<form className='contact__form'>
@@ -101,11 +89,11 @@ const Login = () => {
 					/>
 					<label htmlFor='doctor'>
 						<span className='icon__select'>
-							<i className='fas fa-user-md'></i>
+							<i className='fas fa-user-md' />
 						</span>
 						<h3>Doctor</h3>
 						<span className='selected'>
-							<i className='fas fa-check'></i>
+							<i className='fas fa-check' />
 						</span>
 					</label>
 					<input
@@ -119,19 +107,19 @@ const Login = () => {
 					/>
 					<label htmlFor='patient'>
 						<span className='icon__select'>
-							<i className='fas fa-bed'></i>
+							<i className='fas fa-bed' />
 						</span>
 						<h3>Patient</h3>
 						<span className='selected'>
-							<i className='fas fa-check'></i>
+							<i className='fas fa-check' />
 						</span>
 					</label>
 				</div>
 
-				<span className='message__selection'></span>
+				<span className='message__selection' />
 
 				<div className='email'>
-					<i className='far fa-envelope icon'></i>
+					<i className='far fa-envelope icon' />
 					<input
 						onChange={(e) => {
 							handleInfo(e);
@@ -147,7 +135,7 @@ const Login = () => {
 				</div>
 
 				<div className='password'>
-					<i className='fas fa-lock icon'></i>
+					<i className='fas fa-lock icon' />
 					<input
 						onChange={(e) => {
 							handleInfo(e);
