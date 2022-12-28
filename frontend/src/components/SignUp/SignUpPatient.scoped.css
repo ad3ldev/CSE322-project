@@ -1,30 +1,14 @@
-* {
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
-}
-
-:root {
-	--light-blue: #00b4d8;
-	--blue: #0077b6;
-	--dark-blue: #03045e;
-}
-
-body {
-	background: url("/public/background.jpg");
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.Dcontainer {
+.container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	margin-top: 100px;
-	margin-bottom: 100px;
+
+	background: url("/public/background.jpg");
+
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 form {
@@ -176,7 +160,7 @@ form h2 {
 	border-radius: 3px;
 	display: none;
 }
-.name__alert,
+
 .email__alert,
 .password__alert {
 	position: absolute;
@@ -185,9 +169,10 @@ form h2 {
 	font-size: 12px;
 	display: none;
 }
-.Specialization select {
+.Gender select {
 	position: relative;
-	left: 65px;
+	left: 50%;
+	width: 115px;
 	height: 40px;
 	bottom: 56px;
 	border: 1px solid #ddd;
@@ -199,7 +184,7 @@ form h2 {
 
 /* BOTTOM FORM */
 
-.Dbottom {
+.Pbottom {
 	position: relative;
 	bottom: 20px;
 	width: 90%;
@@ -211,7 +196,7 @@ a:-webkit-any-link {
 	text-decoration: none;
 }
 
-.Dbottom button {
+.Pbottom button {
 	border: none;
 	padding: 10px 25px;
 	background-color: var(--light-blue);
@@ -222,6 +207,6 @@ a:-webkit-any-link {
 	outline: none;
 }
 
-.Dbottom button:active {
+.Pbottom button:active {
 	transform: scale(0.98);
 }

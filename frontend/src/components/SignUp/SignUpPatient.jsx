@@ -1,4 +1,4 @@
-import "./SignUpPatient.css";
+import "./SignUpPatient.scoped.css";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -41,7 +41,7 @@ const SignUpPatient = () => {
 			axios.post(`/signUp`, patient).then((response) => {
 				const res = response.data;
 				if (res.id >= 0 && res.state === "SUCCESS") {
-					navigate("/dashboard", { state: res });
+					navigate("/home", { state: res });
 				} else {
 					showAlert();
 				}
@@ -49,11 +49,9 @@ const SignUpPatient = () => {
 		}
 	};
 	const emailAlert = document.querySelector(".email__alert");
-	const passwordAlert = document.querySelector(".password__alert");
 
 	const validateEmail = (address) => {
-		const check =
-			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		const check = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		if (check.test(address) & (address !== null) & (address !== "")) {
 			check.test(address);
 		} else {
@@ -75,7 +73,7 @@ const SignUpPatient = () => {
 			<form className='contact__form'>
 				<h2>Welcome!</h2>
 				<div className='Dname'>
-					<i className='far fa-envelope icon'></i>
+					<i className='far fa-envelope icon' />
 					<input
 						type='text'
 						placeholder='User Name'
@@ -90,7 +88,7 @@ const SignUpPatient = () => {
 					</small>
 				</div>
 				<div className='Demail'>
-					<i className='far fa-envelope icon'></i>
+					<i className='far fa-envelope icon' />
 					<input
 						type='text'
 						placeholder='Email'
@@ -106,7 +104,7 @@ const SignUpPatient = () => {
 				</div>
 
 				<div className='Demail'>
-					<i className='fas fa-lock icon'></i>
+					<i className='fas fa-lock icon' />
 					<input
 						type='password'
 						placeholder='Password'
@@ -122,7 +120,7 @@ const SignUpPatient = () => {
 					</small>
 				</div>
 				<div className='Demail'>
-					<i className='far fa-envelope icon'></i>
+					<i className='far fa-envelope icon' />
 					<input
 						type='text'
 						placeholder='Address'
@@ -137,7 +135,7 @@ const SignUpPatient = () => {
 					</small>
 				</div>
 				<div className='Dage'>
-					<i className='far fa-envelope icon'></i>
+					<i className='far fa-envelope icon' />
 					<input
 						type='text'
 						placeholder='Age'

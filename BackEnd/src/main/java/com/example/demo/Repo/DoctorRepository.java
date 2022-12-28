@@ -23,7 +23,9 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
     List<Long> findDoctorByEmailAndPassword(String email, String password);
 
     @Query(
-            value="SELECT d.* from Doctor d where d.specialization = ?1")
-    List<Doctor> getDoctorBySpecialization(String specialization);
+            value = "SELECT * from Doctor d where d.specialization = ?1",
+            nativeQuery = true)
+    List<Doctor> getDoctorBySpecialization(int specialization);
+
 
 }
