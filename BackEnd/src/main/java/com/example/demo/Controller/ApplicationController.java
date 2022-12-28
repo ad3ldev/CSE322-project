@@ -1,16 +1,12 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Models.Doctor;
-import com.example.demo.Models.DoctorSpeciality;
 import com.example.demo.Models.Patient;
 import com.example.demo.Repo.DoctorRepository;
 import com.example.demo.Repo.PatientRepository;
 import com.example.demo.Search.SearchService;
-import com.example.demo.Service.AppointmentService;
 import com.example.demo.Service.AuthenticationService;
 import com.example.demo.Service.ProfileCreationService;
-import com.example.demo.Utils.Appointment_Result;
-import com.example.demo.Utils.JsonCustomMapper;
 import com.example.demo.Utils.Result;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.json.JSONException;
@@ -29,18 +25,12 @@ public class ApplicationController {
     ProfileCreationService profileCreationService;
 
     @Autowired
-    AppointmentService appointmentService;
-    @Autowired
     SearchService searchService;
 
     @Autowired
     PatientRepository pr;
     @Autowired
     DoctorRepository dr;
-
-    @Autowired
-    JsonCustomMapper jsonCustomMapper;
-
 
     @PostMapping("/signUp")
     public Result signUp(@RequestBody String userJsonString) throws JsonProcessingException, JSONException {
@@ -68,24 +58,8 @@ public class ApplicationController {
 
 
     @PostMapping("/searchBySpecialization")
-    public List<Doctor> getDoctorsBySpecialization(@RequestBody String specialization){
-        specialization = specialization.replace("=", "");
-        var listOfDoctors =  searchService.getDoctorBySpecializaiton(DoctorSpeciality.valueOf(specialization).ordinal());
-        return listOfDoctors;
-    }
-
-    @PostMapping("/searchByName")
-    public List<Doctor> getDoctorByName(@RequestBody String name){
-        return searchService.getDoctorByName(name);
-    }
-
-    @PostMapping("/makeAppointment")
-    public Appointment_Result makeAppointment(@RequestBody String json) throws JSONException, JsonProcessingException {
-        return appointmentService.addAppointment(jsonCustomMapper.jsonToAppointment(json));
-    }
-    @PostMapping("/cancelAppointment")
-    public Appointment_Result cancelApppointment(@RequestBody String json) throws JSONException, JsonProcessingException {
-        return appointmentService.deleteAppointment(jsonCustomMapper.jsonToAppointment(json));
+    public List<Doctor> getDoctorsBySpecialization(@RequestBody String Specialization){
+        return searchService.getDoctorBySpecializaiton(Specialization);
     }
 
 }
