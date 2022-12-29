@@ -85,7 +85,7 @@ public class ApplicationController {
     }
     @PostMapping("/cancelAppointment")
     public Appointment_Result cancelApppointment(@RequestBody String json) throws JSONException, JsonProcessingException {
-        return appointmentService.deleteAppointment(jsonCustomMapper.jsonToAppointment(json));
+        return appointmentService.deleteAppointment(jsonCustomMapper.cancelJsonToAppointment(json));
     }
     
     @PostMapping("/getPatientAppointments")
