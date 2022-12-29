@@ -61,5 +61,17 @@ public class ApplicationController {
     public List<Doctor> getDoctorsBySpecialization(@RequestBody String Specialization){
         return searchService.getDoctorBySpecializaiton(Specialization);
     }
+    
+    @PostMapping("/getPatientAppointments")
+    public List<Appointment> getPatientAppointments(@RequestBody String id){
+        id = id.replace("=", "");
+        return appointmentService.getPatientAppointments(Integer.parseInt(id));
+    }
+
+    @PostMapping("/getDoctorAppointments")
+    public List<Appointment> getDoctorAppointments(@RequestBody String id){
+        id = id.replace("=", "");
+        return appointmentService.getDoctorAppointments(Integer.parseInt(id));
+    }
 
 }
