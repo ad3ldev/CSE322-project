@@ -26,8 +26,12 @@ const Booking = () => {
   };
   const makeAppointment = (e) => {
     e.preventDefault();
+    setBtn(false);
     console.log(Appointment);
-    axios.post("/makeAppointment", Appointment);
+    axios.post("/makeAppointment", Appointment).then((response) => {
+      const res = response.data;
+      alert(res.description);
+    });
   };
 
   return (
@@ -64,9 +68,10 @@ const Booking = () => {
         </div>
 
         <PopUp trigger={popupBtn} setTrigger={setBtn}>
-          <h1>pick date</h1>
+          <h1 className="form-h1">pick date:</h1>
           <input
             type="date"
+            className="date-form"
             onChange={(e) => {
               const appointment = { ...Appointment };
               appointment.date = e.target.value;
@@ -75,10 +80,11 @@ const Booking = () => {
           />
           <br />
           <br />
+          <h1 className="form-h1">pick hour:</h1>
           <select
             name="Specializtion"
             id="specialization"
-            className="box"
+            className="date-form"
             onChange={(e) => {
               const appointment = { ...Appointment };
               appointment.period = e.target.value;
@@ -96,7 +102,36 @@ const Booking = () => {
 
           <br />
           <br />
-          <button onClick={(e) => makeAppointment(e)}>Make Appointment</button>
+          <h1 className="form-h1">Accepted Cards</h1>
+
+          <div class="icon-container">
+            <i
+              class="fab fa-cc-visa"
+              style={{ color: "navy", marginRight: "5px" }}
+            />
+            <i
+              class="fab fa-cc-mastercard"
+              style={{ color: "red", marginRight: "5px" }}
+            />
+            <i class="fab fa-cc-amazon-pay" style={{ marginRight: "5px" }} />
+            <i
+              class="fab fa-cc-amex"
+              style={{ color: "blue", marginRight: "5px" }}
+            />
+
+            <i class="fa fa-cc-discover" style={{ color: "orange" }} />
+          </div>
+
+          <input
+            type="number"
+            placeholder="your card number"
+            class="box-form"
+          />
+          <br />
+          <br />
+          <button className="submit-app" onClick={(e) => makeAppointment(e)}>
+            Confirm Appointment
+          </button>
         </PopUp>
       </section>
     </div>

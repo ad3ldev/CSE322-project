@@ -24,3 +24,15 @@
   top: 16px;
   right: 16px;
 }
+.close-btn {
+  width: 30px;
+  font-size: 25px;
+  color: rgb(72, 31, 31);
+  background-color: white;
+  border: 2px solid rgb(72, 31, 31);
+  border-radius: 12px;
+}
+.close-btn:hover {
+  cursor: pointer;
+  border-color: white;
+}
