@@ -41,4 +41,11 @@ public class JsonCustomMapper {
                 pr.findAllById(patientIds).get(0),
                 date, startTime, endTime, price, AppointmentStatus.IN_PROGRESS);
     }
+    
+    public Appointment cancelJsonToAppointment(String json) throws JsonProcessingException {
+       // ObjectMapper obj = new ObjectMapper()
+        ObjectMapper mapper = new ObjectMapper();
+        Appointment app = mapper.readValue(json, Appointment.class);
+        return app;
+    }
 }
