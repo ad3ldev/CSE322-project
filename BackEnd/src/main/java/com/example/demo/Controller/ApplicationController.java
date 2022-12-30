@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.Models.Appointment;
 import com.example.demo.Models.Doctor;
 import com.example.demo.Models.DoctorSpeciality;
 import com.example.demo.Models.Patient;
@@ -99,5 +100,12 @@ public class ApplicationController {
         id = id.replace("=", "");
         return appointmentService.getDoctorAppointments(Integer.parseInt(id));
     }
+
+    @PostMapping("/confirmAppointment")
+    public void ConfirmAppointment(@RequestBody String json) throws JSONException, JsonProcessingException {
+        appointmentService.confirmAppointment(jsonCustomMapper.getPrimaryData_with_confirm(json),
+                jsonCustomMapper.getDoctorComment(json));
+    }
+
 
 }

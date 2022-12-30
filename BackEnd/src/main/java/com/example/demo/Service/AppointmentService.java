@@ -1,6 +1,8 @@
 package com.example.demo.Service;
 
 import com.example.demo.Models.Appointment;
+import com.example.demo.Models.AppointmentPrimaryData;
+import com.example.demo.Models.AppointmentStatus;
 import com.example.demo.Models.Type;
 import com.example.demo.Repo.AppointmentRepository;
 import com.example.demo.Utils.Appointment_Result;
@@ -81,5 +83,15 @@ public class AppointmentService {
         }
         appointmentRepository.deleteById(appointment.getAppointmentPrimaryData());
         return new Appointment_Result(State.SUCCESS, "Appointment successfully deleted.", appointment);
+    }
+
+    public void confirmAppointment(AppointmentPrimaryData appointmentPrimaryData, String doctorComments){
+        Appointment appointment = null;
+        List<Appointment> appointments = appointmentRepository.getAppointmentByPrimaryData(appointmentPrimaryData);
+        if(appointments.size() > 0)
+            appointment = appointments.get(0);
+        else
+            return;
+        appointmentRepository.confirmAppointment(AppointmentStatus.COMPLETED, doctorComments, appointmentPrimaryData);
     }
 }
