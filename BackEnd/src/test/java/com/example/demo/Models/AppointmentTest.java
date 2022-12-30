@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.sql.Date;
 import java.sql.Time;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
 class AppointmentTest {
@@ -57,5 +56,22 @@ class AppointmentTest {
                 mock(Patient.class), null, null, null, 0, null);
         appointment.setAppointmentPrimaryData(mock(AppointmentPrimaryData.class));
         assertNotNull(appointment.getAppointmentPrimaryData());
+    }
+
+    @Test
+    void testDoctorCommentsWhenFound() {
+        Appointment appointment = new Appointment(mock(Doctor.class),
+                mock(Patient.class), null, null, null, 0, null);
+        appointment.setAppointmentPrimaryData(mock(AppointmentPrimaryData.class));
+        appointment.setDoctorComments("The state of the patient is good.");
+        assertEquals("The state of the patient is good.", appointment.getDoctorComments());
+    }
+
+    @Test
+    void testDoctorCommentsWhenNotFound() {
+        Appointment appointment = new Appointment(mock(Doctor.class),
+                mock(Patient.class), null, null, null, 0, null);
+        appointment.setAppointmentPrimaryData(mock(AppointmentPrimaryData.class));
+        assertNull(appointment.getDoctorComments());
     }
 }
