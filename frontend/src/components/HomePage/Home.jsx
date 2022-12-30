@@ -95,6 +95,7 @@ const Home = () => {
 					<i className='fas fa-heartbeat' /> medcare
 				</a>
 				<nav className='navbar'>
+
 					<a href='#home'>home</a>
 					<a href='#services'>services</a>
 					<a href='#about'>about</a>
@@ -106,6 +107,7 @@ const Home = () => {
 					<a href='/login'>logout</a>
 				</nav>
 				<div id='menu-btn' className='fas fa-bars' />
+
 			</div>
 
 			<section className='home' id='home'>
@@ -329,6 +331,7 @@ const Home = () => {
 				</h1>
 				<div className='row'>
 					<div className='image'>
+
 						<img src={bookImg} alt='' />
 					</div>
 					<form action=''>
@@ -337,6 +340,7 @@ const Home = () => {
 							type='text'
 							placeholder='your name'
 							className='box'
+
 							id='name'
 							onChange={(e) => {
 								handleInfo(e);
@@ -346,6 +350,7 @@ const Home = () => {
 							type='number'
 							placeholder='your number'
 							className='box'
+
 							id='number'
 							onChange={(e) => {
 								handleInfo(e);
@@ -355,6 +360,7 @@ const Home = () => {
 							type='email'
 							placeholder='your email'
 							className='box'
+
 							id='email'
 							onChange={(e) => {
 								handleInfo(e);
@@ -402,6 +408,7 @@ const Home = () => {
 							type='submit'
 							value='book now'
 							className='btn'
+
 							onClick={(e) => {
 								sendInfo(e);
 							}}
@@ -410,10 +417,12 @@ const Home = () => {
 				</div>
 			</section>
 			<section className='review' id='appointments'>
+
 				<h1 className='heading'>
 					Your <span>upcoming</span> appointments
 				</h1>
 				<div className='box-container'>
+
 					{appointments.length === 0 ? (
 						<div className='box'>
 							<h3>No upcoming appointments</h3>{" "}
@@ -428,13 +437,17 @@ const Home = () => {
 									app.startTime
 								}
 								className='box'>
+
 								<img src={pic1} alt='' />
 								<h3>doc name</h3>
 								<p
 									style={{
 										color: "black",
 									}}
+
 									className='text'>
+
+								
 									Date: {app.date} at {app.startTime} pm.
 								</p>
 								<button
