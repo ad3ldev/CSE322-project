@@ -18,7 +18,6 @@ const Login = () => {
 		} else {
 			user[e.target.id] = e.target.value;
 		}
-
 		setLoggedPerson(user);
 	};
 
@@ -52,12 +51,14 @@ const Login = () => {
 	}
 
 	const validateEmail = (address) => {
-		const check = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		const check = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		if (check.test(address) & (address !== null) & (address !== "")) {
 			check.test(address);
+			setConfirm(1);
 		} else {
 			showAlert();
 			setTimeout(removeAlert, 3000);
+			setConfirm(0);
 		}
 	};
 
@@ -157,7 +158,7 @@ const Login = () => {
 						{loggedPerson.type !== "" && (
 							<Link to={`/SignUp${loggedPerson.type}`}>
 								{" "}
-								Sign Up
+								Signup
 							</Link>
 						)}
 					</div>
