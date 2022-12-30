@@ -72,32 +72,41 @@ const Home = () => {
 		);
 	};
 
-	return (
-		<div
-			className='ggg'
-			style={{
-				fontSize: "62.5%",
-				overflowX: "hidden",
-				scrollPaddingTop: "7rem",
-				scrollBehavior: "smooth",
-				background: "none",
-			}}>
-			<div class='header'>
-				<a href='#' class='logo'>
-					<i class='fas fa-heartbeat' /> medcare
-				</a>
-				<nav class='navbar'>
-					<a href='#home'>home</a>
-					<a href='#services'>services</a>
-					<a href='#about'>about</a>
-					<a href='#doctors'>doctors</a>
-					<a href='#book'>book</a>
-					<a href='#appointments'>appointments</a>
-					<a href='#review'>reviews</a>
-					<a href='#blogs'>blogs</a>
-				</nav>
-				<div id='menu-btn' class='fas fa-bars' />
-			</div>
+  function showConfirmation(id) {
+    var x = document.getElementById(id);
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  return (
+    <div
+      className="ggg"
+      style={{
+        fontSize: "62.5%",
+        overflowX: "hidden",
+        scrollPaddingTop: "7rem",
+        scrollBehavior: "smooth",
+        background: "none",
+      }}
+    >
+      <div class="header">
+        <a href="#" class="logo">
+          <i class="fas fa-heartbeat" /> medcare
+        </a>
+        <nav class="navbar">
+          <a href="#home">home</a>
+          <a href="#services">services</a>
+          <a href="#about">about</a>
+          <a href="#doctors">doctors</a>
+          <a href="#book">book</a>
+          <a href="#appointments">appointments</a>
+          <a href="#review">reviews</a>
+          <a href="#blogs">blogs</a>
+        </nav>
+        <div id="menu-btn" class="fas fa-bars" />
+      </div>
 
 			<section class='home' id='home'>
 				<div class='image'>
@@ -314,131 +323,148 @@ const Home = () => {
 				</div>
 			</section>
 
-			<section class='book' id='book'>
-				<h1 class='heading'>
-					<span>book</span> now
-				</h1>
-				<div class='row'>
-					<div class='image'>
-						<img src={bookImg} alt='' />
-					</div>
-					<form action=''>
-						<h3>book appointment</h3>
-						<input
-							type='text'
-							placeholder='your name'
-							class='box'
-							id='name'
-							onChange={(e) => {
-								handleInfo(e);
-							}}
-						/>
-						<input
-							type='number'
-							placeholder='your number'
-							class='box'
-							id='number'
-							onChange={(e) => {
-								handleInfo(e);
-							}}
-						/>
-						<input
-							type='email'
-							placeholder='your email'
-							class='box'
-							id='email'
-							onChange={(e) => {
-								handleInfo(e);
-							}}
-						/>
-						<select
-							name='Specializtion'
-							id='specialization'
-							className='box'
-							onChange={(e) => {
-								handleInfo(e);
-							}}>
-							<option value=''>Specialization</option>
-							<option value='Family'>Family</option>
-							<option value='Internal'>Internal</option>
-							<option value='Paediatrician'>Paediatrician</option>
-							<option value='Cardiologist'>Cardiologist</option>
-							<option value='Oncologist'>Oncologist</option>
-							<option value='Gastroenterologist'>
-								Gastroenterologist
-							</option>
-							<option value='Pulmonologist'>Pulmonologist</option>
-							<option value='InfectiousDisease'>
-								InfectiousDisease
-							</option>
-							<option value='Endocrinologist'>
-								Endocrinologist
-							</option>
-							<option value='Ophthalmologist'>
-								Ophthalmologist
-							</option>
-							<option value='Dermatologist'>Dermatologist</option>
-							<option value='Psychiatrist'>Psychiatrist</option>
-							<option value='Neurologist'>Neurologist</option>
-							<option value='Radiologist'>Radiologist</option>
-							<option value='Anesthesiologist'>
-								Anesthesiologist
-							</option>
-							<option value='Surgeon'>Surgeon</option>
-							<option value='PhysicianExecutive'>
-								PhysicianExecutive
-							</option>
-						</select>
-						<input
-							type='submit'
-							value='book now'
-							class='btn'
-							onClick={(e) => {
-								sendInfo(e);
-							}}
-						/>
-					</form>
-				</div>
-			</section>
-			<section className='review' id='appointments'>
-				<h1 class='heading'>
-					Your <span>upcoming</span> appointments
-				</h1>
-				<div class='box-container'>
-					{appointments.length === 0 ? (
-						<div className='box'>
-							<h3>No upcoming appointments</h3>{" "}
-						</div>
-					) : (
-						appointments.map((app) => (
-							<div
-								key={
-									app.patientId +
-									app.doctorId +
-									app.date +
-									app.startTime
-								}
-								class='box'>
-								<img src={pic1} alt='' />
-								<h3>doc name</h3>
-								<p
-									style={{
-										color: "black",
-									}}
-									class='text'>
-									Date: {app.date} at {app.startTime} pm.
-								</p>
-								<button
-									id={app.doctorId + app.patientId}
-									onClick={() => cancelAppointment(app)}
-									className='cancel-btn'>
-									cancel appointment
-								</button>
-							</div>
-						))
-					)}
-				</div>
-			</section>
+      <section class="book" id="book">
+        <h1 class="heading">
+          <span>book</span> now
+        </h1>
+        <div class="row">
+          <div class="image">
+            <img src={bookImg} alt="" />
+          </div>
+          <form action="">
+            <h3>book appointment</h3>
+            <input
+              type="text"
+              placeholder="your name"
+              class="box"
+              id="name"
+              onChange={(e) => {
+                handleInfo(e);
+              }}
+            />
+            <input
+              type="number"
+              placeholder="your number"
+              class="box"
+              id="number"
+              onChange={(e) => {
+                handleInfo(e);
+              }}
+            />
+            <input
+              type="email"
+              placeholder="your email"
+              class="box"
+              id="email"
+              onChange={(e) => {
+                handleInfo(e);
+              }}
+            />
+            <select
+              name="Specializtion"
+              id="specialization"
+              className="box"
+              onChange={(e) => {
+                handleInfo(e);
+              }}
+            >
+              <option value="">Specialization</option>
+              <option value="Family">Family</option>
+              <option value="Internal">Internal</option>
+              <option value="Paediatrician">Paediatrician</option>
+              <option value="Cardiologist">Cardiologist</option>
+              <option value="Oncologist">Oncologist</option>
+              <option value="Gastroenterologist">Gastroenterologist</option>
+              <option value="Pulmonologist">Pulmonologist</option>
+              <option value="InfectiousDisease">InfectiousDisease</option>
+              <option value="Endocrinologist">Endocrinologist</option>
+              <option value="Ophthalmologist">Ophthalmologist</option>
+              <option value="Dermatologist">Dermatologist</option>
+              <option value="Psychiatrist">Psychiatrist</option>
+              <option value="Neurologist">Neurologist</option>
+              <option value="Radiologist">Radiologist</option>
+              <option value="Anesthesiologist">Anesthesiologist</option>
+              <option value="Surgeon">Surgeon</option>
+              <option value="PhysicianExecutive">PhysicianExecutive</option>
+            </select>
+            <input
+              type="submit"
+              value="book now"
+              class="btn"
+              onClick={(e) => {
+                sendInfo(e);
+              }}
+            />
+          </form>
+        </div>
+      </section>
+      <section className="review" id="appointments">
+        <h1 class="heading">
+          Your <span>upcoming</span> appointments
+        </h1>
+        <div class="box-container">
+          {appointments.length === 0 ? (
+            <div className="box">
+              <h3>No upcoming appointments</h3>{" "}
+            </div>
+          ) : (
+            appointments.map((app) => (
+              <div
+                key={app.patientId + app.doctorId + app.date + app.startTime}
+                class="box"
+              >
+                <img src={pic1} alt="" />
+                <h3>doc name</h3>
+                <p
+                  style={{
+                    color: "black",
+                  }}
+                  class="text"
+                >
+                  Date: {app.date} at {app.startTime} pm.
+                </p>
+                <button
+                  id={app.doctorId + app.patientId}
+                  onClick={() => showConfirmation("cancelDIV")}
+                  className="cancel-btn"
+                >
+                  cancel appointment
+                </button>
+                <div
+                  style={{ display: "none", marginTop: "10px" }}
+                  id="cancelDIV"
+                >
+                  <h4 style={{ fontSize: "18px" }}>
+                    Are you sure you want to canclel this appointment?
+                  </h4>
+
+                  <button
+                    id={app.doctorId + app.patientId + app.startTime}
+                    onClick={() => cancelAppointment(app)}
+                    className="cancel-btn"
+                    style={{
+                      fontSize: "18px",
+                      marginRight: "100px",
+                    }}
+                  >
+                    Yes
+                  </button>
+                  <button
+                    id={app.doctorId + app.patientId + app.startTime}
+                    onClick={() => {
+                      showConfirmation("cancelDIV");
+                    }}
+                    className="cancel-btn1"
+                    style={{ fontSize: "18px" }}
+                  >
+                    No
+                  </button>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      </section>
 
 			<section class='review' id='review'>
 				<h1 class='heading'>
