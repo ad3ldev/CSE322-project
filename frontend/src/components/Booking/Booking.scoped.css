@@ -63,3 +63,49 @@
   color: var(--green);
   text-shadow: var(--text-shadow);
 }
+
+.date-form {
+  position: relative;
+  border: 2px solid var(--green);
+  border-radius: 4px;
+}
+.date-form:hover {
+  cursor: pointer;
+}
+.form-h1 {
+  position: relative;
+  display: inline;
+  margin-right: 10px;
+}
+.submit-app {
+  border: 2px solid var(--green);
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0.5px 1.5px var(--green);
+}
+.submit-app:hover {
+  cursor: pointer;
+  border: 2px solid var(--green);
+  background-color: var(--green);
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0.5px 1.5px white;
+}
+
+.icon-container {
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.box-form {
+  width: 50%;
+  margin-bottom: 10px;
+  border: 2px solid var(--green);
+
+  border-radius: 0.5em;
+  font-size: 1.6em;
+  color: var(--black);
+
+  padding: 0.2em;
+}
