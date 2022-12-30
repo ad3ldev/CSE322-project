@@ -40,17 +40,17 @@ const SignUpDoctor = () => {
 			doctor.password === "" ||
 			doctor.name === ""
 		) {
-			showAlert();
-			setTimeout(removeAlert, 3000);
-			validateEmail(doctor.email);
-		} else {
-			validateEmail(doctor.email);
+			showAlert("Please Enter all of your necessary information");
+			return;
+		}
+
+		if (validateEmail(doctor.email)) {
 			axios.post("/signUp", doctor).then((response) => {
 				const res = response.data;
 				if (res.id >= 0 && res.state === "SUCCESS") {
 					navigate("/dashboard", { state: res });
 				} else {
-					showAlert();
+					showAlert("Unable to sign up, Please try again");
 				}
 			});
 		}
@@ -58,18 +58,20 @@ const SignUpDoctor = () => {
 	const emailAlert = document.querySelector(".email__alert");
 
 	const validateEmail = (address) => {
-		const check = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		if (check.test(address) & (address !== null) & (address !== "")) {
-			check.test(address);
+		const check = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (check.test(address) && address !== null && address !== "") {
+			return true;
 		} else {
-			showAlert();
-			setTimeout(removeAlert, 3000);
+			showAlert("Please Enter a valid Email");
+			return false;
 		}
 	};
 
 	// email alerts
-	function showAlert() {
+	function showAlert(message) {
+		emailAlert.textContent = message;
 		emailAlert.style.display = "block";
+		setTimeout(removeAlert, 3000);
 	}
 
 	function removeAlert() {
