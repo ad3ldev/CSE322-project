@@ -29,11 +29,10 @@ const Login = () => {
 			loggedPerson.email === "" ||
 			loggedPerson.password === ""
 		) {
-			showAlert();
-			setTimeout(removeAlert, 3000);
-			validateEmail(loggedPerson.email);
-		} else {
-			validateEmail(loggedPerson.email);
+			showAlert("Please enter all of your information");
+			return;
+		}
+		if (validateEmail(loggedPerson.email)) {
 			axios.post("/login", loggedPerson).then((response) => {
 				const res = response.data;
 				console.log(res);
@@ -44,29 +43,30 @@ const Login = () => {
 						navigate("/dashboard", { state: res });
 					}
 				} else {
-					showAlert();
+					showAlert(
+						"Invalid Credentials, Sign Up or check your email and password",
+					);
 				}
 			});
 		}
 	}
 
 	const validateEmail = (address) => {
-		const check = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		if (check.test(address) & (address !== null) & (address !== "")) {
-			check.test(address);
-			setConfirm(1);
+		const check = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (check.test(address) && address !== null && address !== "") {
+			return true;
 		} else {
-			showAlert();
-			setTimeout(removeAlert, 3000);
-			setConfirm(0);
+			showAlert("Please Enter a valid Email");
+			return false;
 		}
 	};
 
 	// email alerts
-	function showAlert() {
+	function showAlert(message) {
+		emailAlert.textContent = message;
 		emailAlert.style.display = "block";
+		setTimeout(removeAlert, 3000);
 	}
-
 	function removeAlert() {
 		emailAlert.style.display = "none";
 	}
@@ -158,7 +158,7 @@ const Login = () => {
 						{loggedPerson.type !== "" && (
 							<Link to={`/SignUp${loggedPerson.type}`}>
 								{" "}
-								Signup
+								Sign Up
 							</Link>
 						)}
 					</div>
