@@ -1,8 +1,9 @@
 package com.example.demo.Service;
 
-import com.example.demo.Exception.BadRequestException;
 import com.example.demo.Models.*;
 import com.example.demo.Repo.AppointmentRepository;
+import com.example.demo.Utils.Appointment_Result;
+import com.example.demo.Utils.State;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,9 +16,9 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
@@ -68,14 +69,14 @@ class AppointmentServiceTest {
                 Time.valueOf("11:45:00"),
                 Time.valueOf("14:30:00"),
                 100.0, AppointmentStatus.IN_PROGRESS);
-        List<Appointment> appointments = new ArrayList<>();
-        appointments.add(appointment);
+        List<Appointment> expected = new ArrayList<>();
+        expected.add(appointment);
         // when
         given(appointmentRepository.findAll())
-                .willReturn(appointments);
-        List<Appointment> expected = underTest.getDoctorAppointments(doctor.getId());
+                .willReturn(expected);
+        List<Appointment> actual = underTest.getDoctorAppointments(doctor.getId());
         // then
-        assertEquals(1, expected.size());
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -105,13 +106,13 @@ class AppointmentServiceTest {
                 Time.valueOf("11:45:00"),
                 Time.valueOf("14:30:00"),
                 100.0, AppointmentStatus.IN_PROGRESS);
-        List<Appointment> appointments = new ArrayList<>();
-        appointments.add(appointment);
+        List<Appointment> expected = new ArrayList<>();
+        expected.add(appointment);
         // when
-        given(appointmentRepository.findAll()).willReturn(appointments);
-        List<Appointment> expected = underTest.getPatientAppointments(patient.getId());
+        given(appointmentRepository.findAll()).willReturn(expected);
+        List<Appointment> actual = underTest.getPatientAppointments(patient.getId());
         // then
-        assertEquals(1, expected.size());
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -129,15 +130,32 @@ class AppointmentServiceTest {
     }
 
     @Test
-    void shouldNotAddAppointment() {
+    void shouldNotAddDuplicateAppointment() {
         Appointment appointment = new Appointment(mock(Doctor.class), mock(Patient.class),
                 Date.valueOf("2020-11-03"), Time.valueOf("20:30:00"), Time.valueOf("21:00:00"),
                 200.0, AppointmentStatus.IN_PROGRESS);
-        given(appointmentRepository.existsById(appointment.getAppointmentPrimaryData()))
+        given(appointmentRepository
+                .existsById(appointment.getAppointmentPrimaryData()))
                 .willReturn(true);
-        assertThatThrownBy(() -> underTest.addAppointment(appointment))
-                .isInstanceOf(BadRequestException.class)
-                .hasMessageContaining("Appointment is taken");
+        Appointment_Result actual = underTest.addAppointment(appointment);
+        assertInstanceOf(Appointment_Result.class, actual);
+        assertEquals("Appointment is taken!", actual.getDescription());
+        assertEquals(State.FAILURE, actual.getState());
+        verify(appointmentRepository, never()).save(any());
+    }
+
+    @Test
+    void shouldNotAddDuplicateDoctorAppointment() {
+        Appointment appointment = new Appointment(mock(Doctor.class), mock(Patient.class),
+                Date.valueOf("2020-11-03"), Time.valueOf("20:30:00"), Time.valueOf("21:00:00"),
+                200.0, AppointmentStatus.IN_PROGRESS);
+        given(appointmentRepository
+                .existsById(appointment.getAppointmentPrimaryData()))
+                .willReturn(true);
+        Appointment_Result actual = underTest.addAppointment(appointment);
+        assertInstanceOf(Appointment_Result.class, actual);
+        assertEquals("Appointment is taken!", actual.getDescription());
+        assertEquals(State.FAILURE, actual.getState());
         verify(appointmentRepository, never()).save(any());
     }
 
@@ -152,7 +170,11 @@ class AppointmentServiceTest {
         AppointmentPrimaryData appointmentPrimaryData = appointment.getAppointmentPrimaryData();
         given(appointmentRepository.existsById(appointmentPrimaryData)).willReturn(true);
         // when
-        underTest.deleteAppointment(appointment);
+        Appointment_Result actual = underTest.deleteAppointment(appointment);
+
+        assertInstanceOf(Appointment_Result.class, actual);
+        assertEquals("Appointment successfully deleted.", actual.getDescription());
+        assertEquals(State.SUCCESS, actual.getState());
         // then
         verify(appointmentRepository).deleteById(appointmentPrimaryData);
     }
@@ -167,12 +189,14 @@ class AppointmentServiceTest {
                 100.0, AppointmentStatus.IN_PROGRESS);
         AppointmentPrimaryData appointmentPrimaryData = appointment.getAppointmentPrimaryData();
         given(appointmentRepository.existsById(appointmentPrimaryData)).willReturn(false);
-        // when
-        // then
-        assertThatThrownBy(() -> underTest.deleteAppointment(appointment))
-                .isInstanceOf(BadRequestException.class)
-                .hasMessageContaining("Appointment is not Exist!");
 
+        // when
+        Appointment_Result actual = underTest.deleteAppointment(appointment);
+
+        assertInstanceOf(Appointment_Result.class, actual);
+        assertEquals("Appointment doesn't Exist!", actual.getDescription());
+        assertEquals(State.FAILURE, actual.getState());
+        // then
         verify(appointmentRepository, never()).deleteById(any());
     }
 }
