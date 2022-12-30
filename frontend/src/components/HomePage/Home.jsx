@@ -104,6 +104,7 @@ const Home = () => {
           <a href="#appointments">appointments</a>
           <a href="#review">reviews</a>
           <a href="#blogs">blogs</a>
+          <a href="/login">logout</a>
         </nav>
         <div id="menu-btn" class="fas fa-bars" />
       </div>
