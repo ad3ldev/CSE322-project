@@ -39,7 +39,7 @@ class AuthenticationServiceTest {
     void testLoginWithPatient() throws JSONException {
         String json = "{" +
                 "    \"email\": \"mosalah@gmail.com\"," +
-                "    \"password\": \"MessiIsTheGoat\"," +
+                "    \"password\": \"Me$$iIsTheGo@t\"," +
                 "    \"type\": \"Patient\"" +
                 "}";
         List<Long> ids = new ArrayList<>();
@@ -59,8 +59,8 @@ class AuthenticationServiceTest {
     @Test
     void testCannotLoginWithPatient() throws JSONException {
         String json = "{" +
-                "    \"email\": \"mosalah@gmail.com\"," +
-                "    \"password\": \"MessiIsTheGoat\"," +
+                "    \"email\": \"ahmadSalem77@gmail.com\"," +
+                "    \"password\": \"ahmadpro#&*55\"," +
                 "    \"type\": \"Patient\"" +
                 "}";
         Result actualResult = authenticationService.Login(json);
@@ -75,8 +75,8 @@ class AuthenticationServiceTest {
     @Test
     void testLoginWithDoctor() throws JSONException {
         String json = "{" +
-                "    \"email\": \"mosalah@gmail.com\"," +
-                "    \"password\": \"MessiIsTheGoat\"," +
+                "    \"email\": \"DrSaleh@gmail.com\"," +
+                "    \"password\": \"DrSaleh512#medicine\"," +
                 "    \"type\": \"Doctor\"" +
                 "}";
         List<Long> ids = new ArrayList<>();
@@ -96,8 +96,8 @@ class AuthenticationServiceTest {
     @Test
     void testCannotLoginWithDoctor() throws JSONException {
         String json = "{" +
-                "    \"email\": \"mosalah@gmail.com\"," +
-                "    \"password\": \"MessiIsTheGoat\"," +
+                "    \"email\": \"ahmaddoctor@gmail.com\"," +
+                "    \"password\": \"ahmaddoctor\"," +
                 "    \"type\": \"Doctor\"" +
                 "}";
         Result actualResult = authenticationService.Login(json);
