@@ -63,8 +63,9 @@ class AppointmentTest {
         Appointment appointment = new Appointment(mock(Doctor.class),
                 mock(Patient.class), null, null, null, 0, null);
         appointment.setAppointmentPrimaryData(mock(AppointmentPrimaryData.class));
-        appointment.setDoctorComments("The state of the patient is good.");
-        assertEquals("The state of the patient is good.", appointment.getDoctorComments());
+        String expectedComment = "The state of the patient is good.";
+        appointment.setDoctorComments(expectedComment);
+        assertEquals(expectedComment, appointment.getDoctorComments());
     }
 
     @Test
