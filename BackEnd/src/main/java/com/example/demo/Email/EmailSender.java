@@ -13,9 +13,7 @@ public class EmailSender {
     JavaMailSender javaMailSender;
 
     public void sendEmail(String email, String patient_name, String doctor_name, String gender, String time) {
-        //System.out.println("sending email to" + email);
         SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setFrom("rozlvet66@gmail.com");
         msg.setTo(email);
         String title = "";
         if(gender.equals("M"))
