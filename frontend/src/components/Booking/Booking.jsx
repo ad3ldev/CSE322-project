@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./Booking.scoped.css";
-import doc1 from "./doc-1.jpg";
 import axios from "axios";
 
 import PopUp from "./PopUp";

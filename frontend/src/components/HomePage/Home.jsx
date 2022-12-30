@@ -13,7 +13,6 @@ import doc3 from "./image/doc-3.jpg";
 import doc4 from "./image/doc-4.jpg";
 import doc5 from "./image/doc-5.jpg";
 import doc6 from "./image/doc-6.jpg";
-import heartBeatSolid from "./image/heartbeat-solid.svg";
 import homeImg from "./image/home-img.svg";
 import pic1 from "./image/pic-1.png";
 import pic2 from "./image/pic-2.png";
