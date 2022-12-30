@@ -1,6 +1,7 @@
 package com.example.demo.Utils;
 
 import com.example.demo.Models.Appointment;
+import com.example.demo.Models.AppointmentPrimaryData;
 import com.example.demo.Models.AppointmentStatus;
 import com.example.demo.Models.Patient;
 import com.example.demo.Repo.DoctorRepository;
@@ -48,4 +49,18 @@ public class JsonCustomMapper {
         Appointment app = mapper.readValue(json, Appointment.class);
         return app;
     }
+
+    public AppointmentPrimaryData getPrimaryData_with_confirm(String json) throws JSONException, JsonProcessingException {
+        JSONObject obj = new JSONObject(json);
+        String appointmentPrimaryDate_json = obj.getString("appointmentPrimaryData");
+        ObjectMapper mapper = new ObjectMapper();
+        AppointmentPrimaryData appointmentPrimaryData = mapper.readValue(appointmentPrimaryDate_json, AppointmentPrimaryData.class);
+        return appointmentPrimaryData;
+    }
+
+    public String getDoctorComment(String json) throws JSONException {
+        JSONObject obj = new JSONObject(json);
+        return obj.getString("doctorComments");
+    }
+
 }
