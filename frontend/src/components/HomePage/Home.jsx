@@ -73,6 +73,14 @@ const Home = () => {
     );
   };
 
+  function showConfirmation(id) {
+    var x = document.getElementById(id);
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
   return (
     <div
       className="ggg"
@@ -418,11 +426,41 @@ const Home = () => {
                 </p>
                 <button
                   id={app.doctorId + app.patientId}
-                  onClick={() => cancelAppointment(app)}
+                  onClick={() => showConfirmation("cancelDIV")}
                   className="cancel-btn"
                 >
                   cancel appointment
                 </button>
+                <div
+                  style={{ display: "none", marginTop: "10px" }}
+                  id="cancelDIV"
+                >
+                  <h4 style={{ fontSize: "18px" }}>
+                    Are you sure you want to canclel this appointment?
+                  </h4>
+
+                  <button
+                    id={app.doctorId + app.patientId + app.startTime}
+                    onClick={() => cancelAppointment(app)}
+                    className="cancel-btn"
+                    style={{
+                      fontSize: "18px",
+                      marginRight: "100px",
+                    }}
+                  >
+                    Yes
+                  </button>
+                  <button
+                    id={app.doctorId + app.patientId + app.startTime}
+                    onClick={() => {
+                      showConfirmation("cancelDIV");
+                    }}
+                    className="cancel-btn1"
+                    style={{ fontSize: "18px" }}
+                  >
+                    No
+                  </button>
+                </div>
               </div>
             ))
           )}

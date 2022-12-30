@@ -40,8 +40,9 @@ const Booking = () => {
         fontSize: "62.5%",
         overflowX: "hidden",
         scrollPaddingTop: "7rem",
+        height: "100vh",
         scrollBehavior: "smooth",
-        background: "none",
+        background: `url("https://img.freepik.com/free-vector/clean-medical-background_53876-97927.jpg?w=2000")`,
         backgroundColor: "white",
       }}
     >

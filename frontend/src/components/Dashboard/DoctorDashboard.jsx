@@ -7,8 +7,10 @@ import axios from "axios";
 const DoctorDashboard = () => {
   const { state } = useLocation();
   const doctor = state;
-  console.log(doctor);
+
   const [appointments, SetAppointment] = useState([]);
+  const [report, setReport] = useState("");
+
   useEffect(() => {
     console.log(doctor.id);
     const getAppointments = async () => {
@@ -23,7 +25,10 @@ const DoctorDashboard = () => {
     getAppointments();
   }, [doctor]);
   const cancelAppointment = (appointment) => {
-    axios.post("/cancelAppointment", appointment).then((response) => {});
+    axios.post("/cancelAppointment", appointment).then((response) => {
+      const res = response.data;
+      //alert(res.description);
+    });
     const apps = appointments.filter(
       (app) =>
         app.doctorId !== appointment.doctorId &&
@@ -34,6 +39,24 @@ const DoctorDashboard = () => {
     console.log(apps);
     SetAppointment(apps);
   };
+
+  const confirmAppointment = (appointment) => {
+    appointment.doctorComments = report;
+    console.log(appointment);
+    axios.post("/makeAppointment", appointment).then((response) => {
+      const res = response.data;
+      //alert(res.description);
+    });
+  };
+
+  function showConfirmation(id) {
+    var x = document.getElementById(id);
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
 
   return (
     <div className="dash">
@@ -51,7 +74,12 @@ const DoctorDashboard = () => {
         {appointments.map((app) => (
           <div class="dash-box" key={app.id} id={app.id}>
             <h3>patient name</h3>
-            <span>consultation price : {app.price}$</span>
+            <br />
+            <h3 style={{ display: "inline" }}>consultation price :</h3>{" "}
+            {app.price}$
+            <br />
+            <br />
+            <h3 style={{ display: "inline" }}>appointment date :</h3> {app.date}
             <div class="dash-share">
               <a href="" class="fab fa-facebook-f" />
               <a href="" class="fab fa-twitter" />
@@ -60,11 +88,64 @@ const DoctorDashboard = () => {
             </div>
             <button
               id={app.doctorId + app.patientId + app.startTime}
-              onClick={() => cancelAppointment(app)}
+              onClick={() => {
+                showConfirmation("cancelDIV");
+                var x = document.getElementById("confirmDIV");
+                x.style.display = "none";
+              }}
               className="cancel-btn"
             >
               cancel appointment
             </button>
+            <button
+              id={app.doctorId + app.patientId + app.startTime}
+              onClick={() => {
+                showConfirmation("confirmDIV");
+                var x = document.getElementById("cancelDIV");
+                x.style.display = "none";
+              }}
+              className="confirm-btn"
+            >
+              confirm appointment
+            </button>
+            <div style={{ display: "none", marginTop: "10px" }} id="cancelDIV">
+              <h4>Are you sure you want to canclel this appointment?</h4>
+
+              <button
+                id={app.doctorId + app.patientId + app.startTime}
+                onClick={() => cancelAppointment(app)}
+                className="cancel-btn"
+                style={{ fontSize: "18px" }}
+              >
+                Yes
+              </button>
+              <button
+                id={app.doctorId + app.patientId + app.startTime}
+                onClick={() => {
+                  showConfirmation("cancelDIV");
+                }}
+                className="confirm-btn"
+                style={{ fontSize: "18px" }}
+              >
+                No
+              </button>
+            </div>
+            <div style={{ display: "none", marginTop: "10px" }} id="confirmDIV">
+              <h4>please, type your report about the session if any</h4>
+              <input
+                className="report-in"
+                style={{ display: "block" }}
+                type="text"
+                onChange={(e) => setReport(e.target.value)}
+              />
+              <button
+                id={app.doctorId + app.patientId + app.startTime}
+                onClick={() => confirmAppointment(app)}
+                className="confirm-btn"
+              >
+                Submit
+              </button>
+            </div>
           </div>
         ))}
       </div>
