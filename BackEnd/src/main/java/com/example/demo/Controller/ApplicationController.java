@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.Models.Appointment;
 import com.example.demo.Models.Doctor;
 import com.example.demo.Models.DoctorSpeciality;
 import com.example.demo.Models.Patient;
