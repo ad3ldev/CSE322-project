@@ -16,6 +16,17 @@ public class Appointment {
     @Column(nullable = false)
     private AppointmentStatus status;
 
+    @Column
+    private String doctorComments;
+
+    public String getDoctorComments() {
+        return doctorComments;
+    }
+
+    public void setDoctorComments(String doctorComments) {
+        this.doctorComments = doctorComments;
+    }
+
     @EmbeddedId
     private AppointmentPrimaryData appointmentPrimaryData;
 
