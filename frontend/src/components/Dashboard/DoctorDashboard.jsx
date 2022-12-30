@@ -35,11 +35,9 @@ const DoctorDashboard = () => {
         app.patientId !== appointment.patientId &&
         app.startTime !== appointment.startTime
     );
-
-    console.log(apps);
-    SetAppointment(apps);
-  };
-
+		console.log(apps);
+		SetAppointment(apps);
+	};
   const confirmAppointment = (appointment) => {
     appointment.doctorComments = report;
     console.log(appointment);
