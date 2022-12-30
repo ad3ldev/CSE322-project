@@ -72,165 +72,164 @@ const Home = () => {
 		);
 	};
 
-  function showConfirmation(id) {
-    var x = document.getElementById(id);
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  }
-  return (
-    <div
-      className="ggg"
-      style={{
-        fontSize: "62.5%",
-        overflowX: "hidden",
-        scrollPaddingTop: "7rem",
-        scrollBehavior: "smooth",
-        background: "none",
-      }}
-    >
-      <div class="header">
-        <a href="#" class="logo">
-          <i class="fas fa-heartbeat" /> medcare
-        </a>
-        <nav class="navbar">
-          <a href="#home">home</a>
-          <a href="#services">services</a>
-          <a href="#about">about</a>
-          <a href="#doctors">doctors</a>
-          <a href="#book">book</a>
-          <a href="#appointments">appointments</a>
-          <a href="#review">reviews</a>
-          <a href="#blogs">blogs</a>
-          <a href="/login">logout</a>
-        </nav>
-        <div id="menu-btn" class="fas fa-bars" />
-      </div>
+	function showConfirmation(id) {
+		var x = document.getElementById(id);
+		if (x.style.display === "none") {
+			x.style.display = "block";
+		} else {
+			x.style.display = "none";
+		}
+	}
+	return (
+		<div
+			className='ggg'
+			style={{
+				fontSize: "62.5%",
+				overflowX: "hidden",
+				scrollPaddingTop: "7rem",
+				scrollBehavior: "smooth",
+				background: "none",
+			}}>
+			<div className='header'>
+				<a href='#' className='logo'>
+					<i className='fas fa-heartbeat' /> medcare
+				</a>
+				<nav className='navbar'>
+					<a href='#home'>home</a>
+					<a href='#services'>services</a>
+					<a href='#about'>about</a>
+					<a href='#doctors'>doctors</a>
+					<a href='#book'>book</a>
+					<a href='#appointments'>appointments</a>
+					<a href='#review'>reviews</a>
+					<a href='#blogs'>blogs</a>
+					<a href='/login'>logout</a>
+				</nav>
+				<div id='menu-btn' className='fas fa-bars' />
+			</div>
 
-			<section class='home' id='home'>
-				<div class='image'>
+			<section className='home' id='home'>
+				<div className='image'>
 					<img src={homeImg} alt='home-img.svg' />
 				</div>
-				<div class='content'>
+				<div className='content'>
 					<h3>stay safe, stay healthy</h3>
 					<p>
 						Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit.
 						Rem Sed Autem Vero? Magnam, Est Laboriosam!
 					</p>
-					<a href='#' class='btn'>
-						contact us <span class='fas fa-chevron-right' />{" "}
+					<a href='#' className='btn'>
+						contact us <span className='fas fa-chevron-right' />{" "}
 					</a>
 				</div>
 			</section>
 
-			<section class='icons-container'>
-				<div class='icons'>
-					<i class='fas fa-user-md' />
+			<section className='icons-container'>
+				<div className='icons'>
+					<i className='fas fa-user-md' />
 					<h3>140+</h3>
 					<p>doctors at work</p>
 				</div>
-				<div class='icons'>
-					<i class='fas fa-users' />
+				<div className='icons'>
+					<i className='fas fa-users' />
 					<h3>1040+</h3>
 					<p>satisfied patients</p>
 				</div>
-				<div class='icons'>
-					<i class='fas fa-procedures' />
+				<div className='icons'>
+					<i className='fas fa-procedures' />
 					<h3>500+</h3>
 					<p>bed facility</p>
 				</div>
-				<div class='icons'>
-					<i class='fas fa-hospital' />
+				<div className='icons'>
+					<i className='fas fa-hospital' />
 					<h3>80+</h3>
 					<p>available hospitals</p>
 				</div>
 			</section>
 
-			<section class='services' id='services'>
-				<h1 class='heading'>
+			<section className='services' id='services'>
+				<h1 className='heading'>
 					our <span>services</span>
 				</h1>
-				<div class='box-container'>
-					<div class='box'>
-						<i class='fas fa-notes-medical' />
+				<div className='box-container'>
+					<div className='box'>
+						<i className='fas fa-notes-medical' />
 						<h3>free checkups</h3>
 						<p>
 							Lorem Ipsum Dolor Sit Amet Consectetur, Adipisicing
 							Elit. Ad, Omnis.
 						</p>
-						<a href='#' class='btn'>
-							learn more <span class='fas fa-chevron-right' />{" "}
+						<a href='#' className='btn'>
+							learn more <span className='fas fa-chevron-right' />{" "}
 						</a>
 					</div>
-					<div class='box'>
-						<i class='fas fa-ambulance' />
+					<div className='box'>
+						<i className='fas fa-ambulance' />
 						<h3>24/7 ambulance</h3>
 						<p>
 							Lorem Ipsum Dolor Sit Amet Consectetur, Adipisicing
 							Elit. Ad, Omnis.
 						</p>
-						<a href='#' class='btn'>
-							learn more <span class='fas fa-chevron-right' />{" "}
+						<a href='#' className='btn'>
+							learn more <span className='fas fa-chevron-right' />{" "}
 						</a>
 					</div>
-					<div class='box'>
-						<i class='fas fa-user-md' />
+					<div className='box'>
+						<i className='fas fa-user-md' />
 						<h3>expert doctors</h3>
 						<p>
 							Lorem Ipsum Dolor Sit Amet Consectetur, Adipisicing
 							Elit. Ad, Omnis.
 						</p>
-						<a href='#' class='btn'>
-							learn more <span class='fas fa-chevron-right' />{" "}
+						<a href='#' className='btn'>
+							learn more <span className='fas fa-chevron-right' />{" "}
 						</a>
 					</div>
-					<div class='box'>
-						<i class='fas fa-pills' />
+					<div className='box'>
+						<i className='fas fa-pills' />
 						<h3>medicines</h3>
 						<p>
 							Lorem Ipsum Dolor Sit Amet Consectetur, Adipisicing
 							Elit. Ad, Omnis.
 						</p>
-						<a href='#' class='btn'>
-							learn more <span class='fas fa-chevron-right' />{" "}
+						<a href='#' className='btn'>
+							learn more <span className='fas fa-chevron-right' />{" "}
 						</a>
 					</div>
-					<div class='box'>
-						<i class='fas fa-procedures' />
+					<div className='box'>
+						<i className='fas fa-procedures' />
 						<h3>bed facility</h3>
 						<p>
 							Lorem Ipsum Dolor Sit Amet Consectetur, Adipisicing
 							Elit. Ad, Omnis.
 						</p>
-						<a href='#' class='btn'>
-							learn more <span class='fas fa-chevron-right' />{" "}
+						<a href='#' className='btn'>
+							learn more <span className='fas fa-chevron-right' />{" "}
 						</a>
 					</div>
-					<div class='box'>
-						<i class='fas fa-heartbeat' />
+					<div className='box'>
+						<i className='fas fa-heartbeat' />
 						<h3>total care</h3>
 						<p>
 							Lorem Ipsum Dolor Sit Amet Consectetur, Adipisicing
 							Elit. Ad, Omnis.
 						</p>
-						<a href='#' class='btn'>
-							learn more <span class='fas fa-chevron-right' />{" "}
+						<a href='#' className='btn'>
+							learn more <span className='fas fa-chevron-right' />{" "}
 						</a>
 					</div>
 				</div>
 			</section>
 
-			<section class='about' id='about'>
-				<h1 class='heading'>
+			<section className='about' id='about'>
+				<h1 className='heading'>
 					<span>about</span> us
 				</h1>
-				<div class='row'>
-					<div class='image'>
+				<div className='row'>
+					<div className='image'>
 						<img src={aboutImg} alt='' />
 					</div>
-					<div class='content'>
+					<div className='content'>
 						<h3>we take care of your healthy life</h3>
 						<p>
 							Lorem Ipsum Dolor Sit Amet Consectetur, Adipisicing
@@ -243,246 +242,270 @@ const Home = () => {
 							Elit. Natus Vero Ipsam Laborum Porro Voluptates
 							Voluptatibus A Nihil Temporibus Deserunt Vel?
 						</p>
-						<a href='#' class='btn'>
-							learn more <span class='fas fa-chevron-right' />{" "}
+						<a href='#' className='btn'>
+							learn more <span className='fas fa-chevron-right' />{" "}
 						</a>
 					</div>
 				</div>
 			</section>
 
-			<section class='doctors' id='doctors'>
-				<h1 class='heading'>
+			<section className='doctors' id='doctors'>
+				<h1 className='heading'>
 					our <span>doctors</span>
 				</h1>
-				<div class='box-container'>
-					<div class='box'>
+				<div className='box-container'>
+					<div className='box'>
 						<img src={doc1} alt='' />
 						<h3>Dr. john deo</h3>
 						<span>expert doctor</span>
-						<div class='share'>
-							<a href='#' class='fab fa-facebook-f' />
-							<a href='#' class='fab fa-twitter' />
-							<a href='#' class='fab fa-linkedin' />
-							<a href='#' class='fab fa-instagram' />
+						<div className='share'>
+							<a href='#' className='fab fa-facebook-f' />
+							<a href='#' className='fab fa-twitter' />
+							<a href='#' className='fab fa-linkedin' />
+							<a href='#' className='fab fa-instagram' />
 						</div>
 					</div>
-					<div class='box'>
+					<div className='box'>
 						<img src={doc2} alt='' />
 						<h3>Dr. Pullen</h3>
 						<span>expert doctor</span>
-						<div class='share'>
-							<a href='#' class='fab fa-facebook-f' />
-							<a href='#' class='fab fa-twitter' />
-							<a href='#' class='fab fa-linkedin' />
-							<a href='#' class='fab fa-instagram' />
+						<div className='share'>
+							<a href='#' className='fab fa-facebook-f' />
+							<a href='#' className='fab fa-twitter' />
+							<a href='#' className='fab fa-linkedin' />
+							<a href='#' className='fab fa-instagram' />
 						</div>
 					</div>
-					<div class='box'>
+					<div className='box'>
 						<img src={doc3} alt='' />
 						<h3> Dr. Swallow</h3>
 						<span>expert doctor</span>
-						<div class='share'>
-							<a href='#' class='fab fa-facebook-f' />
-							<a href='#' class='fab fa-twitter' />
-							<a href='#' class='fab fa-linkedin' />
-							<a href='#' class='fab fa-instagram' />
+						<div className='share'>
+							<a href='#' className='fab fa-facebook-f' />
+							<a href='#' className='fab fa-twitter' />
+							<a href='#' className='fab fa-linkedin' />
+							<a href='#' className='fab fa-instagram' />
 						</div>
 					</div>
-					<div class='box'>
+					<div className='box'>
 						<img src={doc4} alt='' />
 						<h3>Dr. Mangle</h3>
 						<span>expert doctor</span>
-						<div class='share'>
-							<a href='#' class='fab fa-facebook-f' />
-							<a href='#' class='fab fa-twitter' />
-							<a href='#' class='fab fa-linkedin' />
-							<a href='#' class='fab fa-instagram' />
+						<div className='share'>
+							<a href='#' className='fab fa-facebook-f' />
+							<a href='#' className='fab fa-twitter' />
+							<a href='#' className='fab fa-linkedin' />
+							<a href='#' className='fab fa-instagram' />
 						</div>
 					</div>
-					<div class='box'>
+					<div className='box'>
 						<img src={doc5} alt='' />
 						<h3>Dr. Fillmore</h3>
 						<span>expert doctor</span>
-						<div class='share'>
-							<a href='#' class='fab fa-facebook-f' />
-							<a href='#' class='fab fa-twitter' />
-							<a href='#' class='fab fa-linkedin' />
-							<a href='#' class='fab fa-instagram' />
+						<div className='share'>
+							<a href='#' className='fab fa-facebook-f' />
+							<a href='#' className='fab fa-twitter' />
+							<a href='#' className='fab fa-linkedin' />
+							<a href='#' className='fab fa-instagram' />
 						</div>
 					</div>
-					<div class='box'>
+					<div className='box'>
 						<img src={doc6} alt='' />
 						<h3>Dr. Watamaniuk</h3>
 						<span>expert doctor</span>
-						<div class='share'>
-							<a href='#' class='fab fa-facebook-f' />
-							<a href='#' class='fab fa-twitter' />
-							<a href='#' class='fab fa-linkedin' />
-							<a href='#' class='fab fa-instagram' />
+						<div className='share'>
+							<a href='#' className='fab fa-facebook-f' />
+							<a href='#' className='fab fa-twitter' />
+							<a href='#' className='fab fa-linkedin' />
+							<a href='#' className='fab fa-instagram' />
 						</div>
 					</div>
 				</div>
 			</section>
 
-      <section class="book" id="book">
-        <h1 class="heading">
-          <span>book</span> now
-        </h1>
-        <div class="row">
-          <div class="image">
-            <img src={bookImg} alt="" />
-          </div>
-          <form action="">
-            <h3>book appointment</h3>
-            <input
-              type="text"
-              placeholder="your name"
-              class="box"
-              id="name"
-              onChange={(e) => {
-                handleInfo(e);
-              }}
-            />
-            <input
-              type="number"
-              placeholder="your number"
-              class="box"
-              id="number"
-              onChange={(e) => {
-                handleInfo(e);
-              }}
-            />
-            <input
-              type="email"
-              placeholder="your email"
-              class="box"
-              id="email"
-              onChange={(e) => {
-                handleInfo(e);
-              }}
-            />
-            <select
-              name="Specializtion"
-              id="specialization"
-              className="box"
-              onChange={(e) => {
-                handleInfo(e);
-              }}
-            >
-              <option value="">Specialization</option>
-              <option value="Family">Family</option>
-              <option value="Internal">Internal</option>
-              <option value="Paediatrician">Paediatrician</option>
-              <option value="Cardiologist">Cardiologist</option>
-              <option value="Oncologist">Oncologist</option>
-              <option value="Gastroenterologist">Gastroenterologist</option>
-              <option value="Pulmonologist">Pulmonologist</option>
-              <option value="InfectiousDisease">InfectiousDisease</option>
-              <option value="Endocrinologist">Endocrinologist</option>
-              <option value="Ophthalmologist">Ophthalmologist</option>
-              <option value="Dermatologist">Dermatologist</option>
-              <option value="Psychiatrist">Psychiatrist</option>
-              <option value="Neurologist">Neurologist</option>
-              <option value="Radiologist">Radiologist</option>
-              <option value="Anesthesiologist">Anesthesiologist</option>
-              <option value="Surgeon">Surgeon</option>
-              <option value="PhysicianExecutive">PhysicianExecutive</option>
-            </select>
-            <input
-              type="submit"
-              value="book now"
-              class="btn"
-              onClick={(e) => {
-                sendInfo(e);
-              }}
-            />
-          </form>
-        </div>
-      </section>
-      <section className="review" id="appointments">
-        <h1 class="heading">
-          Your <span>upcoming</span> appointments
-        </h1>
-        <div class="box-container">
-          {appointments.length === 0 ? (
-            <div className="box">
-              <h3>No upcoming appointments</h3>{" "}
-            </div>
-          ) : (
-            appointments.map((app) => (
-              <div
-                key={app.patientId + app.doctorId + app.date + app.startTime}
-                class="box"
-              >
-                <img src={pic1} alt="" />
-                <h3>doc name</h3>
-                <p
-                  style={{
-                    color: "black",
-                  }}
-                  class="text"
-                >
-                  Date: {app.date} at {app.startTime} pm.
-                </p>
-                <button
-                  id={app.doctorId + app.patientId}
-                  onClick={() => showConfirmation("cancelDIV")}
-                  className="cancel-btn"
-                >
-                  cancel appointment
-                </button>
-                <div
-                  style={{ display: "none", marginTop: "10px" }}
-                  id="cancelDIV"
-                >
-                  <h4 style={{ fontSize: "18px" }}>
-                    Are you sure you want to canclel this appointment?
-                  </h4>
+			<section className='book' id='book'>
+				<h1 className='heading'>
+					<span>book</span> now
+				</h1>
+				<div className='row'>
+					<div className='image'>
+						<img src={bookImg} alt='' />
+					</div>
+					<form action=''>
+						<h3>book appointment</h3>
+						<input
+							type='text'
+							placeholder='your name'
+							className='box'
+							id='name'
+							onChange={(e) => {
+								handleInfo(e);
+							}}
+						/>
+						<input
+							type='number'
+							placeholder='your number'
+							className='box'
+							id='number'
+							onChange={(e) => {
+								handleInfo(e);
+							}}
+						/>
+						<input
+							type='email'
+							placeholder='your email'
+							className='box'
+							id='email'
+							onChange={(e) => {
+								handleInfo(e);
+							}}
+						/>
+						<select
+							name='Specializtion'
+							id='specialization'
+							className='box'
+							onChange={(e) => {
+								handleInfo(e);
+							}}>
+							<option value=''>Specialization</option>
+							<option value='Family'>Family</option>
+							<option value='Internal'>Internal</option>
+							<option value='Paediatrician'>Paediatrician</option>
+							<option value='Cardiologist'>Cardiologist</option>
+							<option value='Oncologist'>Oncologist</option>
+							<option value='Gastroenterologist'>
+								Gastroenterologist
+							</option>
+							<option value='Pulmonologist'>Pulmonologist</option>
+							<option value='InfectiousDisease'>
+								InfectiousDisease
+							</option>
+							<option value='Endocrinologist'>
+								Endocrinologist
+							</option>
+							<option value='Ophthalmologist'>
+								Ophthalmologist
+							</option>
+							<option value='Dermatologist'>Dermatologist</option>
+							<option value='Psychiatrist'>Psychiatrist</option>
+							<option value='Neurologist'>Neurologist</option>
+							<option value='Radiologist'>Radiologist</option>
+							<option value='Anesthesiologist'>
+								Anesthesiologist
+							</option>
+							<option value='Surgeon'>Surgeon</option>
+							<option value='PhysicianExecutive'>
+								PhysicianExecutive
+							</option>
+						</select>
+						<input
+							type='submit'
+							value='book now'
+							className='btn'
+							onClick={(e) => {
+								sendInfo(e);
+							}}
+						/>
+					</form>
+				</div>
+			</section>
+			<section className='review' id='appointments'>
+				<h1 className='heading'>
+					Your <span>upcoming</span> appointments
+				</h1>
+				<div className='box-container'>
+					{appointments.length === 0 ? (
+						<div className='box'>
+							<h3>No upcoming appointments</h3>{" "}
+						</div>
+					) : (
+						appointments.map((app) => (
+							<div
+								key={
+									app.patientId +
+									app.doctorId +
+									app.date +
+									app.startTime
+								}
+								className='box'>
+								<img src={pic1} alt='' />
+								<h3>doc name</h3>
+								<p
+									style={{
+										color: "black",
+									}}
+									className='text'>
+									Date: {app.date} at {app.startTime} pm.
+								</p>
+								<button
+									id={app.doctorId + app.patientId}
+									onClick={() =>
+										showConfirmation("cancelDIV")
+									}
+									className='cancel-btn'>
+									cancel appointment
+								</button>
+								<div
+									style={{
+										display: "none",
+										marginTop: "10px",
+									}}
+									id='cancelDIV'>
+									<h4 style={{ fontSize: "18px" }}>
+										Are you sure you want to canclel this
+										appointment?
+									</h4>
 
-                  <button
-                    id={app.doctorId + app.patientId + app.startTime}
-                    onClick={() => cancelAppointment(app)}
-                    className="cancel-btn"
-                    style={{
-                      fontSize: "18px",
-                      marginRight: "100px",
-                    }}
-                  >
-                    Yes
-                  </button>
-                  <button
-                    id={app.doctorId + app.patientId + app.startTime}
-                    onClick={() => {
-                      showConfirmation("cancelDIV");
-                    }}
-                    className="cancel-btn1"
-                    style={{ fontSize: "18px" }}
-                  >
-                    No
-                  </button>
-                </div>
-              </div>
-            ))
-          )}
-        </div>
-      </section>
+									<button
+										id={
+											app.doctorId +
+											app.patientId +
+											app.startTime
+										}
+										onClick={() => cancelAppointment(app)}
+										className='cancel-btn'
+										style={{
+											fontSize: "18px",
+											marginRight: "100px",
+										}}>
+										Yes
+									</button>
+									<button
+										id={
+											app.doctorId +
+											app.patientId +
+											app.startTime
+										}
+										onClick={() => {
+											showConfirmation("cancelDIV");
+										}}
+										className='cancel-btn1'
+										style={{ fontSize: "18px" }}>
+										No
+									</button>
+								</div>
+							</div>
+						))
+					)}
+				</div>
+			</section>
 
-			<section class='review' id='review'>
-				<h1 class='heading'>
+			<section className='review' id='review'>
+				<h1 className='heading'>
 					client's <span>review</span>
 				</h1>
-				<div class='box-container'>
-					<div class='box'>
+				<div className='box-container'>
+					<div className='box'>
 						<img src={pic1} alt='' />
 						<h3>Jazmin Archer</h3>
-						<div class='stars'>
-							<i class='fas fa-star' />
-							<i class='fas fa-star' />
-							<i class='fas fa-star' />
-							<i class='fas fa-star' />
-							<i class='fas fa-star-half-alt' />
+						<div className='stars'>
+							<i className='fas fa-star' />
+							<i className='fas fa-star' />
+							<i className='fas fa-star' />
+							<i className='fas fa-star' />
+							<i className='fas fa-star-half-alt' />
 						</div>
-						<p class='text'>
+						<p className='text'>
 							Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing
 							Elit. Laboriosam Sapiente Nihil Aperiam? Repellat
 							Sequi Nisi Aliquid Perspiciatis Libero Nobis Rem
@@ -490,17 +513,17 @@ const Home = () => {
 							Reiciendis Consequuntur Optio Dolorem!
 						</p>
 					</div>
-					<div class='box'>
+					<div className='box'>
 						<img src={pic2} alt='' />
 						<h3>Jazmin Archer</h3>
-						<div class='stars'>
-							<i class='fas fa-star' />
-							<i class='fas fa-star' />
-							<i class='fas fa-star' />
-							<i class='fas fa-star' />
-							<i class='fas fa-star-half-alt' />
+						<div className='stars'>
+							<i className='fas fa-star' />
+							<i className='fas fa-star' />
+							<i className='fas fa-star' />
+							<i className='fas fa-star' />
+							<i className='fas fa-star-half-alt' />
 						</div>
-						<p class='text'>
+						<p className='text'>
 							Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing
 							Elit. Laboriosam Sapiente Nihil Aperiam? Repellat
 							Sequi Nisi Aliquid Perspiciatis Libero Nobis Rem
@@ -508,17 +531,17 @@ const Home = () => {
 							Reiciendis Consequuntur Optio Dolorem!
 						</p>
 					</div>
-					<div class='box'>
+					<div className='box'>
 						<img src={pic3} alt='' />
 						<h3>Abdiel Galloway</h3>
-						<div class='stars'>
-							<i class='fas fa-star' />
-							<i class='fas fa-star' />
-							<i class='fas fa-star' />
-							<i class='fas fa-star' />
-							<i class='fas fa-star-half-alt' />
+						<div className='stars'>
+							<i className='fas fa-star' />
+							<i className='fas fa-star' />
+							<i className='fas fa-star' />
+							<i className='fas fa-star' />
+							<i className='fas fa-star-half-alt' />
 						</div>
-						<p class='text'>
+						<p className='text'>
 							Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing
 							Elit. Laboriosam Sapiente Nihil Aperiam? Repellat
 							Sequi Nisi Aliquid Perspiciatis Libero Nobis Rem
@@ -529,23 +552,23 @@ const Home = () => {
 				</div>
 			</section>
 
-			<section class='blogs' id='blogs'>
-				<h1 class='heading'>
+			<section className='blogs' id='blogs'>
+				<h1 className='heading'>
 					our <span>blogs</span>
 				</h1>
-				<div class='box-container'>
-					<div class='box'>
-						<div class='image'>
+				<div className='box-container'>
+					<div className='box'>
+						<div className='image'>
 							<img src={blog1} alt='' />
 						</div>
-						<div class='content'>
-							<div class='icon'>
+						<div className='content'>
+							<div className='icon'>
 								<a href='#'>
-									<i class='fas fa-calendar' />
+									<i className='fas fa-calendar' />
 									1st may, 2021
 								</a>
 								<a href='#'>
-									<i class='fas fa-user' /> by admin
+									<i className='fas fa-user' /> by admin
 								</a>
 							</div>
 							<h3>blog title goes here</h3>
@@ -553,22 +576,24 @@ const Home = () => {
 								Lorem Ipsum, Dolor Sit Amet Consectetur
 								Adipisicing Elit. Provident, Eius
 							</p>
-							<a href='#' class='btn'>
-								learn more <span class='fas fa-chevron-right' />{" "}
+							<a href='#' className='btn'>
+								learn more{" "}
+								<span className='fas fa-chevron-right' />{" "}
 							</a>
 						</div>
 					</div>
-					<div class='box'>
-						<div class='image'>
+					<div className='box'>
+						<div className='image'>
 							<img src={blog2} alt='' />
 						</div>
-						<div class='content'>
-							<div class='icon'>
+						<div className='content'>
+							<div className='icon'>
 								<a href='#'>
-									<i class='fas fa-calendar' /> 1st may, 2021
+									<i className='fas fa-calendar' /> 1st may,
+									2021
 								</a>
 								<a href='#'>
-									<i class='fas fa-user' /> by admin
+									<i className='fas fa-user' /> by admin
 								</a>
 							</div>
 							<h3>blog title goes here</h3>
@@ -576,22 +601,24 @@ const Home = () => {
 								Lorem Ipsum, Dolor Sit Amet Consectetur
 								Adipisicing Elit. Provident, Eius
 							</p>
-							<a href='#' class='btn'>
-								learn more <span class='fas fa-chevron-right' />{" "}
+							<a href='#' className='btn'>
+								learn more{" "}
+								<span className='fas fa-chevron-right' />{" "}
 							</a>
 						</div>
 					</div>
-					<div class='box'>
-						<div class='image'>
+					<div className='box'>
+						<div className='image'>
 							<img src={blog3} alt='' />
 						</div>
-						<div class='content'>
-							<div class='icon'>
+						<div className='content'>
+							<div className='icon'>
 								<a href='#'>
-									<i class='fas fa-calendar' /> 1st may, 2021
+									<i className='fas fa-calendar' /> 1st may,
+									2021
 								</a>
 								<a href='#'>
-									<i class='fas fa-user' /> by admin
+									<i className='fas fa-user' /> by admin
 								</a>
 							</div>
 							<h3>blog title goes here</h3>
@@ -599,116 +626,119 @@ const Home = () => {
 								Lorem Ipsum, Dolor Sit Amet Consectetur
 								Adipisicing Elit. Provident, Eius
 							</p>
-							<a href='#' class='btn'>
-								learn more <span class='fas fa-chevron-right' />{" "}
+							<a href='#' className='btn'>
+								learn more{" "}
+								<span className='fas fa-chevron-right' />{" "}
 							</a>
 						</div>
 					</div>
 				</div>
 			</section>
-			<section class='footer'>
-				<div class='box-container'>
-					<div class='box'>
+			<section className='footer'>
+				<div className='box-container'>
+					<div className='box'>
 						<h3>quick links</h3>
 						<a href='#'>
 							{" "}
-							<i class='fas fa-chevron-right' /> home
+							<i className='fas fa-chevron-right' /> home
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fas fa-chevron-right' /> services
+							<i className='fas fa-chevron-right' /> services
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fas fa-chevron-right' /> about
+							<i className='fas fa-chevron-right' /> about
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fas fa-chevron-right' /> doctors
+							<i className='fas fa-chevron-right' /> doctors
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fas fa-chevron-right' /> book
+							<i className='fas fa-chevron-right' /> book
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fas fa-chevron-right' /> review
+							<i className='fas fa-chevron-right' /> review
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fas fa-chevron-right' /> blogs
+							<i className='fas fa-chevron-right' /> blogs
 						</a>
 					</div>
-					<div class='box'>
+					<div className='box'>
 						<h3>our services</h3>
 						<a href='#'>
 							{" "}
-							<i class='fas fa-chevron-right' /> dental care
+							<i className='fas fa-chevron-right' /> dental care
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fas fa-chevron-right' /> message therapy
+							<i className='fas fa-chevron-right' /> message
+							therapy
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fas fa-chevron-right' /> cardioloty
+							<i className='fas fa-chevron-right' /> cardioloty
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fas fa-chevron-right' /> diagnosis
+							<i className='fas fa-chevron-right' /> diagnosis
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fas fa-chevron-right' /> ambulance service
+							<i className='fas fa-chevron-right' /> ambulance
+							service
 						</a>
 					</div>
-					<div class='box'>
+					<div className='box'>
 						<h3>contact info</h3>
 						<a href='#'>
 							{" "}
-							<i class='fas fa-phone' /> +123456789
+							<i className='fas fa-phone' /> +123456789
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fas fa-envelope' /> medcare.info.com
+							<i className='fas fa-envelope' /> medcare.info.com
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fas fa-envelope' />{" "}
+							<i className='fas fa-envelope' />{" "}
 							medcare.info.@gmail.com
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fas fa-map-marker-alt' /> Egypt,
+							<i className='fas fa-map-marker-alt' /> Egypt,
 							Alexandria
 						</a>
 					</div>
-					<div class='box'>
+					<div className='box'>
 						<h3>follow us</h3>
 
 						<a href='#'>
 							{" "}
-							<i class='fab fa-facebook-f' /> facebook
+							<i className='fab fa-facebook-f' /> facebook
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fab fa-twitter' /> twitter
+							<i className='fab fa-twitter' /> twitter
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fab fa-linkedin' /> linkedin
+							<i className='fab fa-linkedin' /> linkedin
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fab fa-instagram' /> instagram
+							<i className='fab fa-instagram' /> instagram
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fab fa-youtube' /> youtube
+							<i className='fab fa-youtube' /> youtube
 						</a>
 						<a href='#'>
 							{" "}
-							<i class='fab fa-pinterest' /> pinterest
+							<i className='fab fa-pinterest' /> pinterest
 						</a>
 					</div>
 				</div>
