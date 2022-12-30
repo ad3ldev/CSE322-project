@@ -5,7 +5,7 @@ function PopUp(props) {
 		<div className='popup'>
 			<div className='popup-inner'>
 				<button
-					class='close-btn'
+					className='close-btn'
 					aria-label='Close alert'
 					type='button'
 					onClick={() => props.setTrigger(false)}>
