@@ -24,13 +24,15 @@ const DoctorDashboard = () => {
   }, [doctor]);
   const cancelAppointment = (appointment) => {
     axios.post("/cancelAppointment", appointment).then((response) => {});
-    SetAppointment(
-      appointments.filter(
-        (app) =>
-          app.doctorId !== appointment.doctorId &&
-          app.patientId !== appointment.patientId
-      )
+    const apps = appointments.filter(
+      (app) =>
+        app.doctorId !== appointment.doctorId &&
+        app.patientId !== appointment.patientId &&
+        app.startTime !== appointment.startTime
     );
+
+    console.log(apps);
+    SetAppointment(apps);
   };
 
   return (
@@ -57,7 +59,7 @@ const DoctorDashboard = () => {
               <a href="" class="fab fa-instagram" />
             </div>
             <button
-              id={app.doctorId + app.patientId}
+              id={app.doctorId + app.patientId + app.startTime}
               onClick={() => cancelAppointment(app)}
               className="cancel-btn"
             >
