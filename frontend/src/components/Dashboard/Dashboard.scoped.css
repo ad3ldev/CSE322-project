@@ -1,90 +1,90 @@
 .dash {
-  height: 100vh;
+	height: 100vh;
 
-  background-color: white;
+	background-color: white;
 
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 .dash-name {
-  display: block;
-  position: relative;
-  margin-top: 10px;
-  text-align: center;
-  text-transform: uppercase;
-  color: var(--black);
-  font-size: 1.5em;
-  letter-spacing: 0.4em;
+	display: block;
+	position: relative;
+	margin-top: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	color: var(--black);
+	font-size: 1.5em;
+	letter-spacing: 0.4em;
 }
 
 .dash-name span {
-  text-transform: uppercase;
-  color: var(--green);
-  text-shadow: var(--text-shadow);
+	text-transform: uppercase;
+	color: var(--green);
+	text-shadow: var(--text-shadow);
 }
 .dash-app {
-  display: block;
-  position: relative;
-  margin-top: 10px;
-  text-align: center;
-  text-transform: uppercase;
-  color: var(--black);
-  font-size: 1em;
-  letter-spacing: 0.4em;
-  top: 20px;
+	display: block;
+	position: relative;
+	margin-top: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	color: var(--black);
+	font-size: 1em;
+	letter-spacing: 0.4em;
+	top: 20px;
 }
 
 .dash-app span {
-  text-transform: uppercase;
-  color: var(--green);
-  text-shadow: var(--text-shadow);
+	text-transform: uppercase;
+	color: var(--green);
+	text-shadow: var(--text-shadow);
 }
 .dash .dash-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
-  gap: 2em;
-  margin: 4em;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
+	gap: 2em;
+	margin: 4em;
 }
 .dash .dash-container .dash-box {
-  text-align: center;
-  background: #fff;
-  border: var(--border);
-  border-radius: 0.5em;
-  box-shadow: var(--box-shadow);
-  padding: 2em;
-  margin-left: auto;
-  margin-right: auto;
+	text-align: center;
+	background: #fff;
+	border: var(--border);
+	border-radius: 0.5em;
+	box-shadow: var(--box-shadow);
+	padding: 2em;
+	margin-left: auto;
+	margin-right: auto;
 }
 .dash .dash-container .dash-box .dash-share {
-  padding-top: 2em;
+	padding-top: 2em;
 }
 .dash .dash-container .dash-box .dash-share a {
-  height: 3em;
-  width: 3em;
-  line-height: 2.6em;
-  font-size: 1.5em;
-  color: var(--green);
-  border: var(--border);
-  border-radius: 0.5em;
-  margin: 0.3em;
-  text-decoration: none;
+	height: 3em;
+	width: 3em;
+	line-height: 2.6em;
+	font-size: 1.5em;
+	color: var(--green);
+	border: var(--border);
+	border-radius: 0.5em;
+	margin: 0.3em;
+	text-decoration: none;
 }
 .dash .dash-container .dash-box .dash-share a:hover {
-  background: var(--green);
-  color: #fff;
-  box-shadow: var(--box-shadow);
+	background: var(--green);
+	color: #fff;
+	box-shadow: var(--box-shadow);
 }
 .dash .dash-container .dash-box .cancel-btn {
-  border: 2px solid var(--green);
-  margin-top: 10px;
-  padding: 5px;
-  background-color: white;
-  border-radius: 5px;
+	border: 2px solid var(--green);
+	margin-top: 10px;
+	padding: 5px;
+	background-color: white;
+	border-radius: 5px;
 }
 .dash .dash-container .dash-box .cancel-btn:hover {
-  background-color: var(--green);
-  border-color: white;
-  color: white;
-  cursor: pointer;
+	background-color: var(--green);
+	border-color: white;
+	color: white;
+	cursor: pointer;
 }
