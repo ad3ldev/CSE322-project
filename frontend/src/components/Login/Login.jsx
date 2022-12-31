@@ -1,12 +1,10 @@
 import { useState } from "react";
-import "./Login.css";
+import "./Login.scoped.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
 	const navigate = useNavigate();
-	const [confirmed, setConfirm] = useState(0);
-
 	const [loggedPerson, setLoggedPerson] = useState({
 		type: "",
 		email: "",
@@ -20,18 +18,10 @@ const Login = () => {
 		} else {
 			user[e.target.id] = e.target.value;
 		}
-
 		setLoggedPerson(user);
 	};
 
-	// EMAIL VALIDATION
-	/* const form = document.querySelector(".contact__form");
-  const email = document.querySelector("#email");
-  const password = document.querySelector("#password");
-  const submitBtn = document.querySelector(".submitBtn");*/
 	const emailAlert = document.querySelector(".email__alert");
-	const passwordAlert = document.querySelector(".password__alert");
-
 	function submit(e) {
 		e.preventDefault();
 		if (
@@ -39,51 +29,47 @@ const Login = () => {
 			loggedPerson.email === "" ||
 			loggedPerson.password === ""
 		) {
-			showAlert();
-			setTimeout(removeAlert, 3000);
-			validateEmail(loggedPerson.email);
-		} else {
-			validateEmail(loggedPerson.email);
+			showAlert("Please enter all of your information");
+			return;
+		}
+		if (validateEmail(loggedPerson.email)) {
 			axios.post("/login", loggedPerson).then((response) => {
 				const res = response.data;
+				console.log(res);
 				if (res.id >= 0 && res.state === "SUCCESS") {
-					navigate("/dashboard", { state: res });
+					if (loggedPerson.type === "Patient") {
+						navigate("/home", { state: res });
+					} else if (loggedPerson.type === "Doctor") {
+						navigate("/dashboard", { state: res });
+					}
 				} else {
-					showAlert();
+					showAlert(
+						"Invalid Credentials, Sign Up or check your email and password",
+					);
 				}
 			});
 		}
 	}
 
 	const validateEmail = (address) => {
-		const check =
-			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		if (check.test(address) & (address !== null) & (address !== "")) {
-			check.test(address);
-			setConfirm(1);
+		const check = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (check.test(address) && address !== null && address !== "") {
+			return true;
 		} else {
-			showAlert();
-			setTimeout(removeAlert, 3000);
-			setConfirm(0);
+			showAlert("Please Enter a valid Email");
+			return false;
 		}
 	};
 
 	// email alerts
-	function showAlert() {
+	function showAlert(message) {
+		emailAlert.textContent = message;
 		emailAlert.style.display = "block";
+		setTimeout(removeAlert, 3000);
 	}
-
 	function removeAlert() {
 		emailAlert.style.display = "none";
 	}
-
-	/*  // password alerts
-  function showPasswordAlert() {
-    passwordAlert.style.display = "block";
-  }
-  function removePasswordAlert() {
-    passwordAlert.style.display = "none";
-  } */
 	return (
 		<div className='container'>
 			<form className='contact__form'>
@@ -101,11 +87,11 @@ const Login = () => {
 					/>
 					<label htmlFor='doctor'>
 						<span className='icon__select'>
-							<i className='fas fa-user-md'></i>
+							<i className='fas fa-user-md' />
 						</span>
 						<h3>Doctor</h3>
 						<span className='selected'>
-							<i className='fas fa-check'></i>
+							<i className='fas fa-check' />
 						</span>
 					</label>
 					<input
@@ -119,19 +105,19 @@ const Login = () => {
 					/>
 					<label htmlFor='patient'>
 						<span className='icon__select'>
-							<i className='fas fa-bed'></i>
+							<i className='fas fa-bed' />
 						</span>
 						<h3>Patient</h3>
 						<span className='selected'>
-							<i className='fas fa-check'></i>
+							<i className='fas fa-check' />
 						</span>
 					</label>
 				</div>
 
-				<span className='message__selection'></span>
+				<span className='message__selection' />
 
 				<div className='email'>
-					<i className='far fa-envelope icon'></i>
+					<i className='far fa-envelope icon' />
 					<input
 						onChange={(e) => {
 							handleInfo(e);
@@ -147,7 +133,7 @@ const Login = () => {
 				</div>
 
 				<div className='password'>
-					<i className='fas fa-lock icon'></i>
+					<i className='fas fa-lock icon' />
 					<input
 						onChange={(e) => {
 							handleInfo(e);
@@ -172,7 +158,7 @@ const Login = () => {
 						{loggedPerson.type !== "" && (
 							<Link to={`/SignUp${loggedPerson.type}`}>
 								{" "}
-								Signup
+								Sign Up
 							</Link>
 						)}
 					</div>
