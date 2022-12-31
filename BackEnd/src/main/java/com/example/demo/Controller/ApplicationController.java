@@ -71,7 +71,7 @@ public class ApplicationController {
     @PostMapping("/searchBySpecialization")
     public List<Doctor> getDoctorsBySpecialization(@RequestBody String specialization){
         specialization = specialization.replace("=", "");
-        var listOfDoctors =  searchService.getDoctorBySpecializaiton(DoctorSpeciality.valueOf(specialization).ordinal());
+        var listOfDoctors =  searchService.getDoctorBySpecialization(DoctorSpeciality.valueOf(specialization).ordinal());
         return listOfDoctors;
     }
 

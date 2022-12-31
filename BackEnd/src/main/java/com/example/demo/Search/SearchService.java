@@ -12,7 +12,7 @@ import java.util.List;
 public class SearchService {
     private final DoctorRepository dr;
 
-    public List<Doctor> getDoctorBySpecializaiton(int specialization){
+    public List<Doctor> getDoctorBySpecialization(int specialization){
         return dr.getDoctorBySpecialization(specialization);
     }
     public List<Doctor> getDoctorByName(String name){

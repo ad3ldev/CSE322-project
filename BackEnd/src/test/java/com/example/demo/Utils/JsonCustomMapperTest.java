@@ -6,6 +6,7 @@ import com.example.demo.Models.Doctor;
 import com.example.demo.Models.Patient;
 import com.example.demo.Repo.DoctorRepository;
 import com.example.demo.Repo.PatientRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
