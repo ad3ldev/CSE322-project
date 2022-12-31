@@ -1,4 +1,4 @@
-import "./SignUpPatient.css";
+import "./SignUpPatient.scoped.css";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -24,6 +24,7 @@ const SignUpPatient = () => {
 			user[e.target.id] = e.target.value;
 		}
 		setPatient(user);
+		console.log(patient);
 	};
 	const createPatient = (e) => {
 		e.preventDefault();
@@ -33,38 +34,37 @@ const SignUpPatient = () => {
 			patient.password === "" ||
 			patient.name === ""
 		) {
-			showAlert();
-			setTimeout(removeAlert, 3000);
-			validateEmail(patient.email);
-		} else {
-			validateEmail(patient.email);
+			showAlert("Please Enter all of your necessary information");
+			return;
+		}
+		if (validateEmail(patient.email)) {
 			axios.post(`/signUp`, patient).then((response) => {
 				const res = response.data;
 				if (res.id >= 0 && res.state === "SUCCESS") {
-					navigate("/dashboard", { state: res });
+					navigate("/home", { state: res });
 				} else {
-					showAlert();
+					showAlert("Unable to sign up, Please try again");
 				}
 			});
 		}
 	};
 	const emailAlert = document.querySelector(".email__alert");
-	const passwordAlert = document.querySelector(".password__alert");
 
 	const validateEmail = (address) => {
-		const check =
-			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		if (check.test(address) & (address !== null) & (address !== "")) {
-			check.test(address);
+		const check = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (check.test(address) && address !== null && address !== "") {
+			return true;
 		} else {
-			showAlert();
-			setTimeout(removeAlert, 3000);
+			showAlert("Please Enter a valid Email");
+			return false;
 		}
 	};
 
 	// email alerts
-	function showAlert() {
+	function showAlert(message) {
+		emailAlert.textContent = message;
 		emailAlert.style.display = "block";
+		setTimeout(removeAlert, 3000);
 	}
 
 	function removeAlert() {
@@ -75,7 +75,7 @@ const SignUpPatient = () => {
 			<form className='contact__form'>
 				<h2>Welcome!</h2>
 				<div className='Dname'>
-					<i className='far fa-envelope icon'></i>
+					<i className='far fa-envelope icon' />
 					<input
 						type='text'
 						placeholder='User Name'
@@ -90,7 +90,7 @@ const SignUpPatient = () => {
 					</small>
 				</div>
 				<div className='Demail'>
-					<i className='far fa-envelope icon'></i>
+					<i className='far fa-envelope icon' />
 					<input
 						type='text'
 						placeholder='Email'
@@ -106,7 +106,7 @@ const SignUpPatient = () => {
 				</div>
 
 				<div className='Demail'>
-					<i className='fas fa-lock icon'></i>
+					<i className='fas fa-lock icon' />
 					<input
 						type='password'
 						placeholder='Password'
@@ -122,7 +122,7 @@ const SignUpPatient = () => {
 					</small>
 				</div>
 				<div className='Demail'>
-					<i className='far fa-envelope icon'></i>
+					<i className='far fa-envelope icon' />
 					<input
 						type='text'
 						placeholder='Address'
@@ -136,8 +136,20 @@ const SignUpPatient = () => {
 						Please enter a valid address
 					</small>
 				</div>
+				<div className='Demail'>
+					<i className='far fa-envelope icon' />
+					<input
+						type='text'
+						placeholder='Put a link for previous Reports if any.'
+						id='previousReports'
+						onChange={(e) => {
+							handleInfo(e);
+						}}
+					/>
+					<span className='field__name'>Report</span>
+				</div>
 				<div className='Dage'>
-					<i className='far fa-envelope icon'></i>
+					<i className='far fa-envelope icon' />
 					<input
 						type='text'
 						placeholder='Age'
