@@ -72,7 +72,7 @@ class ApplicationControllerTest {
         actualPatient.setName("ahmad");
         actualPatient.setPassword("ahmadPro");
         actualPatient.setPreviousReports("https://drive.google.com/drive/folders/1EbJLrEM8UTnIzswN8rw9sPZ8PzQkivDW");
-        actualPatient.setType(Type.Patient);
+//        actualPatient.setType(Type.Patient);
 
         ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
         String patientJsonString = ow.writeValueAsString(actualPatient);
